@@ -11,7 +11,7 @@ angular.module('portalApp')
         details: "il n'y a pas de détails!",
         category: '1',
         date: "2016-04-12 10:00",
-        id: '798654123'
+        id: '1234'
     }, {
         title: "stylo",
         details: "un stylo",
@@ -117,7 +117,7 @@ angular.module('portalApp')
 
     // Handle click on delete button
     $scope.removeItem = function(index) {
-        $scope.model.splice(index, 1)
+        $scope.found_model.splice(index, 1)
             //index.show = false;
     }
 
