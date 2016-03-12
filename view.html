@@ -77,7 +77,7 @@
                             <widget-icon name="angle-right"></widget-icon>
                         </widget-cell>
                     </widget-row>
-                    <button class="btn btn-default remove" ng-click="removeItem(item)"  ng-show="item.id == studentData.studentNum">
+                    <button class="btn btn-default remove" ng-click="removeItem(item)"  ng-show="studentData.studentNum == studentData.studentNum">
                         Remove item
                     </button>
                 </widget-list>
@@ -115,6 +115,8 @@
                     <button class="btn btn-default upload-btn"><widget-icon style="width:20px;"name="upload"></widget-icon><h5> Upload Image</h5>
                     </button>
                     <br/>
+                    <p>Be sure to include your contact information such as email!
+                    </p>
                     <button class="btn btn-default" ng-click="insertInput()">
                          Add new item
                     </button>
@@ -217,7 +219,7 @@
                             <widget-icon name="angle-right"></widget-icon>
                         </widget-cell>
                     </widget-row>
-                    <button class="btn btn-default remove" ng-click="removeItem(item)" ng-show="item.id == studentData.studentNum">
+                    <button class="btn btn-default remove" ng-click="removeItem(item)" ng-show="studentData.studentNum == studentData.studentNum">
                         Remove item
                     </button>
                 </widget-list>
