@@ -1,6 +1,10 @@
 .form-title{
+    height: 75px;
+    width: 100px;
 }
 .form-details{
+    height: 150px;
+    width: 200px;
 }
 
 .form-control{
