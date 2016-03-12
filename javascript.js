@@ -191,8 +191,8 @@ angular.module('portalApp')
         }
         else if($scope.isChecked==false){
             $scope.portalHelpers.invokeServerFunction('addFound', {
-            	title: $scope.foundInputTitle.value,
-            	details: $scope.foundInputDetails.value,
+            	title: $scope.lostInputTitle.value,
+            	details: $scope.lostInputDetails.value,
                 time: moment().format('MMMM Do YYYY, h:mm:ss a'),
                 table: 'foundTable'
         	}).then(function(result) {

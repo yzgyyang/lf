@@ -25,18 +25,23 @@ h6{
     padding-left:8px;
 }
 .upload-btn{
-    height:50px;
+    height:50px !important;
     width:70px !important;
 }
 
 .btn.btn-default.remove {
-	float: right
+	float: right !important;
+    background-color:#DC143C !important;
+    color:white !important;
+    border-radius:10px !important;
 }
 .add-new{
-    background-color:#32CD32 !important;
+    width:120px !important;
+    background-color:#348C00 !important;
     margin-top:10px !important;
     border-radius:10px !important;
     margin-bottom: 10px !important;
+    color:white !important;
 }
 
 .onoffswitch {
