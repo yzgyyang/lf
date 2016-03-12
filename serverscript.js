@@ -1,5 +1,5 @@
 function getTable(){
-    var table = ('SELECT * FROM lostTable');
+    var table = db.Execute('SELECT * FROM lostTable');
     return table;
                  
 function getFound(){
