@@ -38,7 +38,7 @@
                         Add new
                     </button>
                 </div>
-                <widget-list list="item in searchResults" show-items="5">
+                <widget-list list="item in foundTable.value" show-items="5">
                     <widget-row clickable ng-click="showDetails(item)">
                         <widget-cell fill>{{item.title}}</widget-cell>
                         <widget-cell>
