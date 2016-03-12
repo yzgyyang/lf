@@ -166,7 +166,7 @@ angular.module('portalApp')
         $scope.lostInputTitle.value = "";
         $scope.lostInputDetails.value = "";
     }
-                $scope.portalHelpers.invokeServerFunction('getTable', {table:lostTable})
+                $scope.portalHelpers.invokeServerFunction('getTable', {table:"lostTable"})
                 .then(function(result) {
                     $scope.lostTable = result;
                 }); 
