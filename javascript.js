@@ -3,6 +3,9 @@ angular.module('portalApp')
 // Widget controller - runs every time widget is shown
 .controller('lfCtrl', ['$scope', '$http', '$q', 'lfFactory', function ($scope, $http, $q, lfFactory) {
 
+    $scope.title = { value: "" };
+    $scope.details = { value: "" };
+    
         // Model for the search and list example
     $scope.model = [{
         title: "Watcard",
@@ -70,6 +73,9 @@ angular.module('portalApp')
         //index.show = false;
     }
 
+    $scope.addItem = function() {
+    	var title = $scope.title	
+    }
     
     // Handle "previous item" click from the details page
     $scope.prevItem = function () {
