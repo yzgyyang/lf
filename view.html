@@ -28,7 +28,6 @@
                     filters="[{value:'1',text:'Number 1'},{value:'2',text:'Number 2'}]">
             </widget-filter>
 
-
             <widget-searching>
                 <widget-list list="item in searchResults" show-items="5">
                     <widget-row clickable ng-click="showDetails(item)">
@@ -62,7 +61,6 @@
                     <widget-row clickable ng-click="showDetails(item)">
                         <widget-cell fill>{{item.title}}</widget-cell>
                         <widget-cell>
-                            
                             <widget-icon name="angle-right"></widget-icon>
                         </widget-cell>
                     </widget-row>
@@ -70,8 +68,6 @@
                         Remove item
                     </button>
                 </widget-list>
-
-                 
             </widget-not-searching>
         </widget-search>
     </div>
@@ -85,9 +81,9 @@
 				<div class="btn-group-vertical" role="group">
                 	<input type="text" class="form-control form-title" ng-model="lostInputTitle.value" placeholder="Title"/>
                     <br />
-                   	<input type="text" class="form-control form-details" ng-model="insertLostDetails.value" placeholder="Details"/>
+                   	<input type="text" class="form-control form-details" ng-model="lostInputDetails.value" placeholder="Details"/>
                     <br />    
-                    <button class="btn btn-default" ng-click="">
+                    <button class="btn btn-default" ng-click="insertInput()">
                          Add new item
                     </button>
                 </div>

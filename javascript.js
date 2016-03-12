@@ -40,8 +40,8 @@ angular.module('portalApp')
 
     // Import variables and functions from service
     $scope.data = lfFactory.data;
-    $scope.lostinput=lfFactory.lostInput;
-    $scope.foundinput=lfFactory.foundInput;
+    $scope.lostInputDetails=lfFactory.lostInputDetails;
+    $scope.lostInputTitle=lfFactory.lostInputTitle;
 
     // initialize the service
     lfFactory.init($scope);
@@ -81,12 +81,13 @@ angular.module('portalApp')
         var nextItem = $scope.portalHelpers.getNextListItem();
         $scope.showDetails(nextItem);
     }
-    /*$scope.insertInput = function(){
+    // INSERTS ITEM INTO SQL TABLE
+    $scope.insertInput = function(){
         $scope.portalHelpers.invokeServerFunction('addLost',{
-            title = $scope.lostInputTitle.value;
-            details = $scope.lostInputDetails.value;
+            title : $scope.lostInputTitle.value,
+            details : $scope.lostInputDetails.value
             
-    })}*/
+    })}
     
     $scope.
     Item = function (index) {
@@ -121,7 +122,10 @@ angular.module('portalApp')
             value: true
         };
 
-    	var lostInput = {
+    	var lostInputDetails = {
+            value: null
+        };
+   		var lostInputTitle = {
             value: null
         };
     	var foundInput = {
