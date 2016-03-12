@@ -212,11 +212,15 @@ angular.module('portalApp')
             console.log('RESPONSE', result.data.building_name);
             console.log('RESPONSE', result.data.building_code);
         });
-    $scope.buildList = null;
+    $scope.buildList = [];
     
     $scope.portalHelpers.invokeServerFunction('getBuildingData')
         .then(function(result) {
             console.log('RESPONSE', result);
+        	angular.forEach(result.data, function (buildingData) {
+            	$scope.buildList.push({ buildingCode: buildingData.building_code, buildingName: buildingData.building_name });
+                console.log({ buildingCode: buildingData.building_code, buildingName: buildingData.building_name });
+            });
         });
     
     $scope.loading = lfFactory.loading;
