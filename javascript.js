@@ -155,6 +155,11 @@ angular.module('portalApp')
         			console.log(result); 
                     $scope.lostTable.value = result;
                 }); 
+    $scope.portalHelpers.invokeServerFunction('getTable', {table:'foundTable'})
+                .then(function(result) {
+        			console.log(result); 
+                    $scope.foundTable.value = result;
+                }); 
 
     $scope.nextItem = function() {
             var nextItem = $scope.portalHelpers.getNextListItem();
