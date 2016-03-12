@@ -65,6 +65,12 @@ angular.module('portalApp')
         $scope.showDetails(prevItem);
     }
 
+        // Handle click to display a view
+    $scope.showInColumnOne = function (viewname) {
+        // Show view in column one
+        $scope.portalHelpers.showView(viewname, 1)
+    };
+    
     $scope.nextItem = function () {
         var nextItem = $scope.portalHelpers.getNextListItem();
         $scope.showDetails(nextItem);
