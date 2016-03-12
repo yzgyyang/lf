@@ -1,9 +1,6 @@
-function getTable(){
-    
+function getTable(){    
     var table = db.Execute('SELECT * FROM @table');
     return table;
-    
-    }   
 }                 
 function getFound(){
     
