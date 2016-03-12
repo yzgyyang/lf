@@ -53,12 +53,12 @@
             <widget-not-searching>
                 <widget-row>
                     <widget-cell>
-                        <h2>Lost</h2>
+                        <h2> <b>Lost</b></h2>
                         
                 
           <!-- Add new item at Second Page -->
 				<div class="btn-group-vertical" role="group">
-                    <button class="btn btn-default" ng-click="showInColumnOne('second.html')">
+                    <button class="btn btn-default add-new" ng-click="showInColumnOne('second.html')">
                         Add new
                     </button>
                 </div>
@@ -66,7 +66,7 @@
                 </widget-cell>
                 </widget-row>
                         
-                <widget-list ng-repeat="item in lostTable.value" show-items="3">
+                <widget-list list="item in lostTable.value" show-items="3">
                     <widget-row clickable ng-click="showDetails(item)">
                         <li class="info">
                         	<widget-cell fill>{{item.title}}</widget-cell>
@@ -77,7 +77,7 @@
                             <widget-icon name="angle-right"></widget-icon>
                         </widget-cell>
                     </widget-row>
-                    <button class="btn btn-default remove" ng-click="removeItem($index)"  ng-show="item.id == studentData.studentNum">
+                    <button class="btn btn-default remove" ng-click="removeItem(item)"  ng-show="item.id == studentData.studentNum">
                         Remove item
                     </button>
                 </widget-list>
@@ -97,7 +97,7 @@
             <p>
                 Exeminer les postes existants avant d'ajourter un nouvel élément, s'il vous plaît!</p>
             <div class="onoffswitch">
-    			<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" ng-model="isChecked">
+    			<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" ng-click="checkBox()" checked>
     				<label class="onoffswitch-label" for="myonoffswitch">
         				<span class="onoffswitch-inner"></span>
        				 	<span class="onoffswitch-switch"></span>
@@ -194,12 +194,12 @@
             <widget-not-searching>
                 <widget-row>
                     <widget-cell>
-                        <h2>Found</h2>
+                        <h2><b>Found</b></h2>
                         
                 
           <!-- Add new item at Second Page -->
 				<div class="btn-group-vertical" role="group">
-                    <button class="btn btn-default" ng-click="showInColumnOne('second.html')">
+                    <button class="btn btn-default add-new" ng-click="showInColumnOne('second.html')">
                         Add new
                     </button>
                 </div>
@@ -217,7 +217,7 @@
                             <widget-icon name="angle-right"></widget-icon>
                         </widget-cell>
                     </widget-row>
-                    <button class="btn btn-default remove" ng-click="removeItem($index)"  ng-show="item.id == studentData.studentNum">
+                    <button class="btn btn-default remove" ng-click="removeItem(item)" ng-show="item.id == studentData.studentNum">
                         Remove item
                     </button>
                 </widget-list>

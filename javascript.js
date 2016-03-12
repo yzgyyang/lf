@@ -3,6 +3,11 @@ angular.module('portalApp')
 // Widget controller - runs every time widget is shown
 .controller('lfCtrl', ['$scope', '$http', '$q', 'lfFactory', function($scope, $http, $q, lfFactory) {
 	$scope.isChecked = true;
+    $scope.checkBox=function()
+    {
+        $scope.isChecked=!($scope.isChecked);
+        console.log($scope.isChecked);
+    }
     $scope.lostorfound = "lost";
     // Open api calls
     $scope.studentData = {};
@@ -99,6 +104,9 @@ angular.module('portalApp')
     $scope.lostInputDetails = lfFactory.lostInputDetails;
     $scope.lostInputTitle = lfFactory.lostInputTitle;
     $scope.lostTable = lfFactory.lostTable;
+    $scope.foundInputDetails = lfFactory.foundInputDetails;
+    $scope.foundInputTitle = lfFactory.foundInputTitle;
+    $scope.foundTable = lfFactory.foundTable;
 
     // initialize the service
     lfFactory.init($scope);
@@ -167,6 +175,7 @@ angular.module('portalApp')
         }
         // INSERTS ITEM INTO SQL TABLE
     $scope.insertInput = function() {
+        console.log($scope.isChecked);
         if($scope.isChecked==true){
         	$scope.portalHelpers.invokeServerFunction('addLost', {
             	title: $scope.lostInputTitle.value,
@@ -181,6 +190,18 @@ angular.module('portalApp')
         	$scope.lostInputDetails.value = "";
         }
         else if($scope.isChecked==false){
+            $scope.portalHelpers.invokeServerFunction('addFound', {
+            	title: $scope.foundInputTitle.value,
+            	details: $scope.foundInputDetails.value,
+                time: moment().format('MMMM Do YYYY, h:mm:ss a'),
+                table: 'foundTable'
+        	}).then(function(result) {
+            	$scope.foundTable.value = result;
+                console.log("added found", result);
+        	});
+        	$scope.foundInputTitle.value = "";
+        	$scope.foundInputDetails.value = "";
+            
         }
     }
             
@@ -246,10 +267,17 @@ angular.module('portalApp')
     var lostInputTitle = {
         value: null
     };
-    var foundInput = {
+        var foundTable = {
         value: null
     };
 
+
+    var foundInputDetails = {
+        value: null
+    };
+    var foundInputTitle = {
+        value: null
+    };
     var sourcesLoaded = 0;
 
     var init = function($scope) {
@@ -271,7 +299,10 @@ angular.module('portalApp')
         loading: loading,
         lostInputTitle: lostInputTitle,
         lostInputDetails: lostInputDetails,
-        lostTable: lostTable
+        lostTable: lostTable,
+        foundInputTitle: foundInputTitle,
+        foundInputDetails: foundInputDetails,
+        foundTable: foundTable
     };
 }])
 
