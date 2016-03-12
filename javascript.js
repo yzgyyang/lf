@@ -70,7 +70,10 @@ angular.module('portalApp')
         $scope.showDetails(nextItem);
     }
     $scope.insertInput = function(){
-        $scope.portalHelpers.invokeServerFunction
+        $scope.portalHelpers.invokeServerFunction('addLost',{
+            title = $scope.lostInputTitle.value;
+            details = $scope.lostInputDetails.value;
+            
     }
     
     // watch for changes in the loading variable
