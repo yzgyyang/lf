@@ -253,10 +253,17 @@ $scope.portalHelpers.invokeServerFunction('getOpenData', {abbr:"MC"})
     var lostInputTitle = {
         value: null
     };
-    var foundInput = {
+        var foundTable = {
         value: null
     };
 
+
+    var foundInputDetails = {
+        value: null
+    };
+    var foundInputTitle = {
+        value: null
+    };
     var sourcesLoaded = 0;
 
     var init = function($scope) {
@@ -278,7 +285,10 @@ $scope.portalHelpers.invokeServerFunction('getOpenData', {abbr:"MC"})
         loading: loading,
         lostInputTitle: lostInputTitle,
         lostInputDetails: lostInputDetails,
-        lostTable: lostTable
+        lostTable: lostTable,
+        foundInputTitle: foundInputTitle,
+        foundInputDetails: foundInputDetails,
+        foundTable: foundTable
     };
 }])
 
