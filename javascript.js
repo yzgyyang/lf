@@ -82,6 +82,8 @@ angular.module('portalApp')
         var nextItem = $scope.portalHelpers.getNextListItem();
         $scope.showDetails(nextItem);
     }
+    $scope.insertInput = function(){
+    }
 }])
 
 // Factory maintains the state of the widget
