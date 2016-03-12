@@ -17,7 +17,7 @@ function removeLost(){
 }
 function removeFound(){
 }
-function getStudentData(){
+function getData(){
     // Use Student object to retrieve all available student info
     var studentInfo = {
 		career: user.Student.Career,
