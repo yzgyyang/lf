@@ -66,7 +66,8 @@ angular.module('portalApp')
     
     // Handle click on delete button
        $scope.removeItem = function(index) {
-           index.show = false;
+           $scope.model.splice(index, 1)
+           //index.show = false;
        }
         
     
