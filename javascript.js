@@ -78,7 +78,7 @@ angular.module('portalApp')
     // INSERTS ITEM INTO SQL TABLE
     $scope.insertInput = function(){
         $scope.portalHelpers.invokeServerFunction('addLost',{
-            title : $scope.lostInputTitle.value
+            title : $scope.lostInputTitle.value,
             details : $scope.lostInputDetails.value
             
     })}
@@ -118,7 +118,7 @@ angular.module('portalApp')
     	var lostInputDetails = {
             value: null
         };
-    var lostInputTitle = {
+   		var lostInputTitle = {
             value: null
         };
     	var foundInput = {
