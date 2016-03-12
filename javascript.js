@@ -3,39 +3,7 @@ angular.module('portalApp')
 // Widget controller - runs every time widget is shown
 .controller('lfCtrl', ['$scope', '$http', '$q', 'lfFactory', function ($scope, $http, $q, lfFactory) {
 
-    // Widget Configuration
-    $scope.portalHelpers.config = {
-        // make 'widgetMenu.html' the template for the top right menu
-        "widgetMenu": "widgetMenu.html"
-    };
-
-    $scope.item = {value:''};
-
-    // Import variables and functions from service
-    $scope.data = lfFactory.data;
-    $scope.lostinput=lfFactory.lostInput;
-    $scope.foundinput=lfFactory.foundInput;
-
-    // initialize the service
-    lfFactory.init($scope);
-
-    // watch for changes in the loading variable
-    $scope.$watch('loading.value', function () {
-        // if loading
-        if ($scope.loading.value) {
-            // show loading screen in the first column, and don't append it to browser history
-            $scope.portalHelpers.showView('loading.html', 1, false);
-            // show loading animation in place of menu button
-            $scope.portalHelpers.toggleLoading(true);
-        } else {
-            $scope.portalHelpers.showView('main.html', 1);
-            $scope.portalHelpers.toggleLoading(false);
-        }
-    });
-    
-	// Show main view in the first column
-	$scope.portalHelpers.showView('main.html', 1);
-    // Model for the search and list example
+        // Model for the search and list example
     $scope.model = [{
         title: "Watcard",
         details: "item 1 details",
@@ -62,6 +30,25 @@ angular.module('portalApp')
         category: '2'
     }];
     
+    // Widget Configuration
+    $scope.portalHelpers.config = {
+        // make 'widgetMenu.html' the template for the top right menu
+        "widgetMenu": "widgetMenu.html"
+    };
+
+    $scope.item = {value:''};
+
+    // Import variables and functions from service
+    $scope.data = lfFactory.data;
+    $scope.lostinput=lfFactory.lostInput;
+    $scope.foundinput=lfFactory.foundInput;
+
+    // initialize the service
+    lfFactory.init($scope);
+
+	// Show main view in the first column
+	$scope.portalHelpers.showView('main.html', 1);
+
     // Handle click on an item in the list and search example
     $scope.showDetails = function (item) {
         // Set which item to show in the details view
@@ -85,6 +72,20 @@ angular.module('portalApp')
     $scope.insertInput = function(){
         $scope.portalHelpers.invokeServerFunction
     }
+    
+    // watch for changes in the loading variable
+    $scope.$watch('loading.value', function () {
+        // if loading
+        if ($scope.loading.value) {
+            // show loading screen in the first column, and don't append it to browser history
+            $scope.portalHelpers.showView('loading.html', 1, false);
+            // show loading animation in place of menu button
+            $scope.portalHelpers.toggleLoading(true);
+        } else {
+            $scope.portalHelpers.showView('main.html', 1);
+            $scope.portalHelpers.toggleLoading(false);
+        }
+    });
 }])
 
 // Factory maintains the state of the widget
@@ -98,10 +99,11 @@ angular.module('portalApp')
         var loading = {
             value: true
         };
-     var lostInput = {
+
+    	var lostInput = {
             value: null
         };
-     var foundInput = {
+    	var foundInput = {
             value: null
         };
 
@@ -127,6 +129,7 @@ angular.module('portalApp')
         };
 
 }])
+
 // Custom directive example
 .directive('lfDirectiveName', ['$http', function ($http) {
 	return {
@@ -135,6 +138,7 @@ angular.module('portalApp')
 		}
 	};
 }])
+
 // Custom filter example
 .filter('lfFilterName', function () {
 	return function (input, arg1, arg2) {
