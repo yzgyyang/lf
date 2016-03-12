@@ -90,6 +90,12 @@ angular.module('portalApp')
         var loading = {
             value: true
         };
+     var lostInput = {
+            value: null
+        };
+     var foundInput = {
+            value: null
+        };
 
         var sourcesLoaded = 0;
 
