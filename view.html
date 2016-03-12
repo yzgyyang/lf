@@ -66,7 +66,7 @@
                 </widget-cell>
                 </widget-row>
                         
-                <widget-list ng-repeat="item in db.lostTable.value" show-items="3">
+                <widget-list ng-repeat="item in lostTable.value" show-items="3">
                     <widget-row clickable ng-click="showDetails(item)">
                         <li class="info">
                         	<widget-cell fill>{{item.title}}</widget-cell>
@@ -97,7 +97,7 @@
             <p>
                 Exeminer les postes existants avant d'ajourter un nouvel élément, s'il vous plaît!</p>
             <div class="onoffswitch">
-    			<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+    			<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" ng-model="isChecked">
     				<label class="onoffswitch-label" for="myonoffswitch">
         				<span class="onoffswitch-inner"></span>
        				 	<span class="onoffswitch-switch"></span>
