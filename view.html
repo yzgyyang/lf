@@ -19,12 +19,11 @@
                 </button>
             </widget-cell>
         </widget-row>
-
-        <widget-search 
+<widget-search 
              label="" 
              placeholder="Search here" 
              search-results-title="Behold"
-             data="model" 
+             data="found_model" 
              min-char="2" 
              fields="['title','details']">
             <widget-filter 
@@ -33,12 +32,7 @@
             </widget-filter>
 
             <widget-searching>
-                <div class="btn-group-vertical" role="group">
-                    <button class="btn btn-default" ng-c ck="showInColumnOne('second.html')">
-                        Add new
-                    </button>
-                </div>
-                <widget-list list="item in foundTable.value" show-items="5">
+                <widget-list list="item in searchResults" show-items="10">
                     <widget-row clickable ng-click="showDetails(item)">
                         <widget-cell fill>{{item.title}}</widget-cell>
                         <widget-cell>
@@ -53,7 +47,7 @@
             <widget-not-searching>
                 <widget-row>
                     <widget-cell>
-                        <h2>Lost</h2>
+                        <h2>Found</h2>
                         
                 
           <!-- Add new item at Second Page -->
@@ -66,13 +60,12 @@
                 </widget-cell>
                 </widget-row>
                         
-                <widget-list ng-repeat="item in lostTable.value" show-items="3">
+                <widget-list list="item in foundTable.value" show-items="5">
                     <widget-row clickable ng-click="showDetails(item)">
                         <li class="info">
                         	<widget-cell fill>{{item.title}}</widget-cell>
                         	<h6 style="color: #A9A9A9;"> Date Submitted: <widget-cell fill>{{item.date}}</widget-cell></h6>
                         </li>
-                       
                         <widget-cell>
                             <widget-icon name="angle-right"></widget-icon>
                         </widget-cell>
@@ -159,12 +152,11 @@
                     </button>
             </widget-cell>
         </widget-row>
-
-        <widget-search 
+<widget-search 
              label="" 
              placeholder="Search here" 
              search-results-title="Behold"
-             data="found_model" 
+             data="model" 
              min-char="2" 
              fields="['title','details']">
             <widget-filter 
@@ -173,7 +165,12 @@
             </widget-filter>
 
             <widget-searching>
-                <widget-list list="item in searchResults" show-items="10">
+                <div class="btn-group-vertical" role="group">
+                    <button class="btn btn-default" ng-c ck="showInColumnOne('second.html')">
+                        Add new
+                    </button>
+                </div>
+                <widget-list list="item in foundTable.value" show-items="5">
                     <widget-row clickable ng-click="showDetails(item)">
                         <widget-cell fill>{{item.title}}</widget-cell>
                         <widget-cell>
@@ -188,7 +185,7 @@
             <widget-not-searching>
                 <widget-row>
                     <widget-cell>
-                        <h2>Found</h2>
+                        <h2>Lost</h2>
                         
                 
           <!-- Add new item at Second Page -->
@@ -201,12 +198,13 @@
                 </widget-cell>
                 </widget-row>
                         
-                <widget-list list="item in foundTable.value" show-items="5">
+                <widget-list ng-repeat="item in lostTable.value" show-items="3">
                     <widget-row clickable ng-click="showDetails(item)">
                         <li class="info">
                         	<widget-cell fill>{{item.title}}</widget-cell>
                         	<h6 style="color: #A9A9A9;"> Date Submitted: <widget-cell fill>{{item.date}}</widget-cell></h6>
                         </li>
+                       
                         <widget-cell>
                             <widget-icon name="angle-right"></widget-icon>
                         </widget-cell>
