@@ -8,7 +8,7 @@ angular.module('portalApp')
     //models for founder
     $scope.found_model=[{
         title: "Watcard",
-        details: "il y a na pas de details!",
+        details: "il n'y a pas de details!",
         category: '1',
         id: '798654123'
     }, {
