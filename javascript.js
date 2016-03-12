@@ -98,13 +98,18 @@ angular.module('portalApp')
     }).then(function(result){
             $scope.lostTable.value=result;
         });
-        $scope.lostInputTitle.value="";
-        $scope.lostInputDetails.value="";}
+    $scope.lostInputTitle.value="";
+    $scope.lostInputDetails.value="";}
+
     
-   
-    Item = function (index) {
-    	console.log("123", index);
-    }
+   // Open api calls
+    $scope.studentData = {};
+    $scope.portalHelpers.invokeServerFunction('getStudentData')
+    	.then(function (result) {
+        	$scope.studentData = result;
+        	console.log(result);
+    });
+    
     $scope.loading = lfFactory.loading;
     // watch for changes in the loading variable
     $scope.$watch('loading.value', function () {
