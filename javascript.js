@@ -9,6 +9,8 @@ angular.module('portalApp')
         "widgetMenu": "widgetMenu.html"
     };
 
+    $scope.item = {value:''};
+
     // Import variables and functions from service
     $scope.data = lfFactory.data;
 
@@ -33,11 +35,11 @@ angular.module('portalApp')
 	$scope.portalHelpers.showView('main.html', 1);
     // Model for the search and list example
     $scope.model = [{
-        title: "item 1",
+        title: "Watcard",
         details: "item 1 details",
         category: '1'
     }, {
-        title: "item 2",
+        title: "pen",
         details: "item 2 details",
         category: '2'
     }, {
