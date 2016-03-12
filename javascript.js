@@ -176,11 +176,17 @@ angular.module('portalApp')
             $scope.portalHelpers.showView('loading.html', 1, false);
             // show loading animation in place of menu button
             $scope.portalHelpers.toggleLoading(true);
-            $scope.portalHelpers.invokeServerFunction('getTable(true)')
+            $scope.portalHelpers.invokeServerFunction('getTable', {table:lostTable})
                 .then(function(result) {
                     $scope.lostTable = result;
-                    console.log(result);
                 });
+            
+            $scope.portalHelpers.invokeServerFunction('insert', {
+                value: $scope.insertValue.value
+            }).then(function (result) {
+                $scope.dbData.value = result;
+            });
+            
         } else {
             $scope.portalHelpers.showView('main.html', 1);
             $scope.portalHelpers.toggleLoading(false);
