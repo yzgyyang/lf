@@ -75,12 +75,12 @@ angular.module('portalApp')
         var nextItem = $scope.portalHelpers.getNextListItem();
         $scope.showDetails(nextItem);
     }
-    $scope.insertInput = function(){
+    /*$scope.insertInput = function(){
         $scope.portalHelpers.invokeServerFunction('addLost',{
             title = $scope.lostInputTitle.value;
+            details = $scope.lostInputDetails.value;
             
-            
-    })}
+    })}*/
     
     $scope.removeItem = function (index) {
     	console.log("123", index);
