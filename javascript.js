@@ -124,9 +124,11 @@ angular.module('portalApp')
 
     // Handle click on delete button
     $scope.removeItem = function(index) {
+    	//Logic to delete the item
+		var result = confirm("Are you sure you want to delete this item?");
+        if (result) {
         $scope.found_model.splice(index, 1)
-            //index.show = false;
-    }
+        }}
 
     $scope.addItem = function() {
         var title = $scope.title.value;
