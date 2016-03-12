@@ -16,6 +16,7 @@ function getFound(){
 function getLost(){
 }
 function addLost(){
+    
     db.Execute('INSERT TOP(1) INTO lostTable VALUES(@currentUser,@title,@details)');
     return getTable();
 }
