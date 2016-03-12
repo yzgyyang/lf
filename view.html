@@ -77,7 +77,7 @@
                             <widget-icon name="angle-right"></widget-icon>
                         </widget-cell>
                     </widget-row>
-                    <button class="btn btn-default remove" ng-click="removeItem($index)" ng-show="false">
+                    <button class="btn btn-default remove" ng-click="removeItem($index)"  ng-show="found_model[$index].id == 1234">
                         Remove item
                     </button>
                 </widget-list>
@@ -195,7 +195,7 @@
                             <widget-icon name="angle-right"></widget-icon>
                         </widget-cell>
                     </widget-row>
-                    <button class="btn btn-default remove" ng-click="removeItem($index)" ng-show="model[$index].id == 123">
+                    <button class="btn btn-default remove" ng-click="removeItem($index)"  ng-show="found_model[$index].id == 1234">
                         Remove item
                     </button>
                 </widget-list>
