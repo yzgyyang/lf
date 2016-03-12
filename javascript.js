@@ -135,7 +135,7 @@ angular.module('portalApp')
     	//Logic to delete the item
 		var result = confirm("Are you sure you want to delete this item?");
         if (result) {
-        $scope.found_model.splice(index, 1)
+        	$scope.lostTable.splice(index, 1)
         }}
 
     $scope.addItem = function() {
