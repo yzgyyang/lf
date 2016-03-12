@@ -13,6 +13,8 @@ angular.module('portalApp')
 
     // Import variables and functions from service
     $scope.data = lfFactory.data;
+    $scope.lostinput=lfFactory.lostInput;
+    $scope.foundinput=lfFactory.foundInput;
 
     // initialize the service
     lfFactory.init($scope);
