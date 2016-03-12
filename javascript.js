@@ -150,7 +150,7 @@ angular.module('portalApp')
         // Show view in column one
         $scope.portalHelpers.showView(viewname, 2)
     };
-     $scope.portalHelpers.invokeServerFunction('getTable', {table:"lostTable"})
+     $scope.portalHelpers.invokeServerFunction('getTable', {table:'lostTable'})
                 .then(function(result) {
                     $scope.lostTable.value = result;
                 }); 
