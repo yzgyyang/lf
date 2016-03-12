@@ -33,8 +33,10 @@ h6{
 	float: right !important;
     background-color:#DC143C !important;
     color:white !important;
+    border-radius:10px !important;
 }
 .add-new{
+    width:120px !important;
     background-color:#348C00 !important;
     margin-top:10px !important;
     border-radius:10px !important;
