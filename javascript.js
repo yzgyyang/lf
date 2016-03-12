@@ -5,7 +5,34 @@ angular.module('portalApp')
 
     $scope.title = { value: "" };
     $scope.details = { value: "" };
+    $scope.lostorfound="lost";
     
+    //models for founder
+    $scope.found_model=[{
+        title: "Watcard",
+        details: "il y a na pas de details!",
+        category: '1'
+    }, {
+        title: "stylo",
+        details: "un stylo",
+        category: '2'
+    }, {
+        title: "pizza",
+        details: "nouvelle!",
+        category: '1'
+    }, {
+        title: "item 4",
+        details: "item 4 details",
+        category: '2'
+    }, {
+        title: "item 5",
+        details: "item 5 details",
+        category: '1'
+    }, {
+        title: "item 6",
+        details: "item 6 details",
+        category: '2'
+    }];
         // Model for the search and list example
     $scope.model = [{
         title: "Watcard",
@@ -58,6 +85,16 @@ angular.module('portalApp')
 
 	// Show main view in the first column
 	$scope.portalHelpers.showView('main.html', 1);
+    $scope.toFound=function()
+    {
+        $scope.lostorfound="found";
+        $scope.portalHelpers.showView('found.html', 1);
+    }
+    $scope.toLost=function()
+    {
+        $scope.lostorfound="lost"
+        $scope.portalHelpers.showView('main.html', 1);
+    }
 
     // Handle click on an item in the list and search example
     $scope.showDetails = function (item) {
