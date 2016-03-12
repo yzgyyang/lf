@@ -16,11 +16,11 @@ function getFound(){
 function getLost(){
 }
 function addLost(){
-    db.Execute('INSERT TOP(1) INTO lostTable VALUES(@currentUser,@title,@details)');
+    db.Execute('INSERT TOP(1) INTO lostTable VALUES(@currentUser,@title,@details,@time)');
     return getTable();
 }
 function addFound(){
-     db.Execute('INSERT TOP(1) INTO foundTable VALUES(@currentUser,@title,@details)');
+     db.Execute('INSERT TOP(1) INTO foundTable VALUES(@currentUser,@title,@details,@time)');
     return getTable();
     
 }
