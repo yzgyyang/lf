@@ -180,11 +180,6 @@ angular.module('portalApp')
                 .then(function(result) {
                     $scope.lostTable = result;
                 });           
-            $scope.portalHelpers.invokeServerFunction('insert', {
-                value: $scope.insertValue.value
-            }).then(function (result) {
-                $scope.dbData.value = result;
-            });
             $scope.portalHelpers.invokeServerFunction('getData')
                 .then(function(result) {
                 $scope.studentData = result;
