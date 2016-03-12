@@ -13,3 +13,7 @@
 h2{
     color:black;
 }
+
+.btn.btn-default.remove {
+	float: right
+}
