@@ -87,7 +87,10 @@ angular.module('portalApp')
         $scope.portalHelpers.invokeServerFunction('addLost',{
             title : $scope.lostInputTitle.value,
             details : $scope.lostInputDetails.value            
-    }).then(function(succ){console.log('succ response', succ);});}
+    }).then(function(result){
+            $scope.lostTable.value-result;})
+        $scope.lostInputTitle.value=null;
+        $scope.lostInputDetails.value=null;}
     
    
     Item = function (index) {
@@ -121,6 +124,10 @@ angular.module('portalApp')
         var loading = {
             value: true
         };
+    var lostTable = {
+            value: null
+        };
+
 
     	var lostInputDetails = {
             value: null
@@ -153,6 +160,7 @@ angular.module('portalApp')
             loading: loading,
             lostInputTitle: lostInputTitle,
             lostInputDetails: lostInputDetails
+            lostTable: lostTable
         };
 }])
 
