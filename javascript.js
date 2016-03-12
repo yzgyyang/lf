@@ -80,7 +80,7 @@ angular.module('portalApp')
             title = $scope.lostInputTitle.value;
             details = $scope.lostInputDetails.value;
             
-    }
+    })}
     
     $scope.removeItem = function (index) {
     	console.log("123", index);
