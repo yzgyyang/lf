@@ -216,7 +216,15 @@ angular.module('portalApp')
             console.log('RESPONSE', result.data.building_name);
             console.log('RESPONSE', result.data.building_code);
         });
-
+    $scope.buildList = null;
+    
+    $scope.portalHelpers.invokeServerFunction('getBuildingData')
+        .then(function(result) {
+            console.log('RESPONSE', result.data.building_name);
+            console.log('RESPONSE', result.data.building_code);ll
+        
+        });
+    
     $scope.loading = lfFactory.loading;
     // watch for changes in the loading variable
     $scope.$watch('loading.value', function() {
