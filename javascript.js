@@ -31,7 +31,7 @@ angular.module('portalApp')
         details: "item 4 details",
         date: "2016-04-12 10:00",
         category: '2',
-        id: 123
+        id: $scope.studentData.studentNum
     }, {
         title: "item 5",
         details: "item 5 details",
@@ -43,7 +43,7 @@ angular.module('portalApp')
         details: "item 6 details",
         date: "2016-04-12 10:00",
         category: '2',
-        id: 123
+        id: $scope.studentData.studentNum
     }];
     // Model for the search and list example
     $scope.model = [{
