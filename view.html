@@ -62,7 +62,7 @@
                 </widget-cell>
                 </widget-row>
                         
-                <widget-list list="item in db.lostTable.value" show-items="3">
+                <widget-list ng-repeat="item in db.lostTable.value" show-items="3">
                     <widget-row clickable ng-click="showDetails(item)">
                         <widget-cell fill>{{item.title}}</widget-cell>
                         <widget-cell>
