@@ -79,6 +79,30 @@ angular.module('portalApp')
         $scope.showDetails(nextItem);
     }
 }])
+
+    // Handle click on an item in the list and search example
+    $scope.showDetails = function (item) {
+        // Set which item to show in the details view
+        $scope.item.value = item;
+        // Show details view in the second column
+        $scope.portalHelpers.showView('details.html', 2);
+    };
+
+    // Handle "previous item" click from the details page
+    $scope.prevItem = function () {
+        // get previous items in the list
+        var prevItem = $scope.portalHelpers.getPrevListItem();
+        // refresh details view with the new item
+        $scope.showDetails(prevItem);
+    }
+
+    $scope.nextItem = function () {
+        var nextItem = $scope.portalHelpers.getNextListItem();
+        $scope.showDetails(nextItem);
+    }
+
+}])
+
 // Factory maintains the state of the widget
 .factory('lfFactory', ['$http', '$rootScope', '$filter', '$q', function ($http, $rootScope, $filter, $q) {
 		
