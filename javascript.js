@@ -30,39 +30,45 @@ angular.module('portalApp')
     }, {
         title: "item 6",
         details: "item 6 details",
-        category: '2'
+        category: '2',
     }];
         // Model for the search and list example
     $scope.model = [{
         title: "Watcard",
         details: "item 1 details",
         category: '1',
-        show: true
+        show: true,
+        id: 123
     }, {
         title: "pen",
         details: "item 2 details",
         category: '2',
-        show: true
+        show: true,
+        id: 123
     }, {
         title: "item 3",
         details: "item 3 details",
         category: '1',
-        show: true
+        show: true,
+        id: 123
     }, {
         title: "item 4",
         details: "item 4 details",
         category: '2',
-        show: true
+        show: true,
+        id: 123
     }, {
         title: "item 5",
         details: "item 5 details",
         category: '1',
-        show: true
+        show: true,
+        id: 123
     }, {
         title: "item 6",
         details: "item 6 details",
         category: '2',
-        show: true
+        show: true,
+        id: 20472237
     }];
     
     // Widget Configuration
