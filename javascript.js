@@ -83,6 +83,7 @@ angular.module('portalApp')
         $scope.showDetails(nextItem);
     }
     $scope.insertInput = function(){
+        $scope.portalHelpers.invokeServerFunction
     }
 }])
 
