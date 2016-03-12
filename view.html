@@ -57,14 +57,23 @@
                                 
                 </widget-cell>
                 </widget-row>
+                        
                 <widget-list list="item in model" show-items="3">
                     <widget-row clickable ng-click="showDetails(item)">
                         <widget-cell fill>{{item.title}}</widget-cell>
                         <widget-cell>
+                            <button class="btn btn-default remove" id="remove-button-{{$index}}" ng-click="">
+                                Remove item
+                            </button>
+                        </widget-cell>
+                        <widget-cell>
+                            
                             <widget-icon name="angle-right"></widget-icon>
                         </widget-cell>
                     </widget-row>
                 </widget-list>
+
+                 
             </widget-not-searching>
         </widget-search>
     </div>
