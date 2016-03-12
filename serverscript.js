@@ -1,10 +1,8 @@
-function getTable(lost){
-    if(lost){
-    var table = db.Execute('SELECT * FROM lostTable');
-    return table;}
-    else{       
-    var table = db.Execute('SELECT * FROM foundTable');
+function getTable(){
+    
+    var table = db.Execute('SELECT * FROM @table');
     return table;
+    
     }   
 }                 
 function getFound(){
