@@ -12,13 +12,13 @@
     <div class="collapseMe">
         <widget-row>
             <widget-cell>
-                <h2>Search and List Example</h2>
+                <h2>Look for items?</h2>
             </widget-cell>
         </widget-row>
 
         <widget-search 
-             label="What do you seek, padawan?" 
-             placeholder="Type in a search term you must" 
+             label="" 
+             placeholder="Search here" 
              search-results-title="Behold"
              data="model" 
              min-char="2" 
@@ -67,7 +67,7 @@
 
 </script>
 
-<!-- Menu template -->
+<!-- Menu -->
 <script type="text/ng-template" id="widgetMenu.html">
     <li>
         <a ng-click="menuButtonClick()">
@@ -76,7 +76,7 @@
     </li>
 </script>
 
-<!-- VIEW FOR THE SEARCH AND LIST EXAMPLE -->
+<!-- VIEW FOR THE SEARCH AND LIST -->
 <script type="text/ng-template" id="details.html">
     <widget-list-controls prev-click="prevItem" next-click="nextItem" original-item="item.value" prev-text="Previous Item"
                           next-text="Next Item"></widget-list-controls>
