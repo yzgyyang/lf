@@ -3,6 +3,10 @@ angular.module('portalApp')
 // Widget controller - runs every time widget is shown
 .controller('lfCtrl', ['$scope', '$http', '$q', 'lfFactory', function($scope, $http, $q, lfFactory) {
     $scope.isChecked = true;
+    $scope.checkBox=function(){
+        $scope.isChecked=!($scope.isChecked);
+        console.log($scope.isChecked);
+    }
     $scope.lostorfound = "lost";
     // Open api calls
     $scope.studentData = {};
