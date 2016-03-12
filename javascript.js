@@ -170,9 +170,11 @@ angular.module('portalApp')
         if($scope.isChecked==true){
         	$scope.portalHelpers.invokeServerFunction('addLost', {
             	title: $scope.lostInputTitle.value,
-            	details: $scope.lostInputDetails.value
+            	details: $scope.lostInputDetails.value,
+                table: 'lostTable'
         	}).then(function(result) {
             	$scope.lostTable.value = result;
+                console.log("added lost", result);
         	});
         	$scope.lostInputTitle.value = "";
         	$scope.lostInputDetails.value = "";
