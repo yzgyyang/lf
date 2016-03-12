@@ -75,11 +75,15 @@ angular.module('portalApp')
         var nextItem = $scope.portalHelpers.getNextListItem();
         $scope.showDetails(nextItem);
     }
-    $scope.insertInput = function(){
+    /*$scope.insertInput = function(){
         $scope.portalHelpers.invokeServerFunction('addLost',{
             title = $scope.lostInputTitle.value;
             details = $scope.lostInputDetails.value;
             
+    })}*/
+    
+    $scope.removeItem = function (index) {
+    	console.log("123", index);
     }
     
     // watch for changes in the loading variable
@@ -95,6 +99,7 @@ angular.module('portalApp')
             $scope.portalHelpers.toggleLoading(false);
         }
     });
+
 }])
 
 // Factory maintains the state of the widget
@@ -136,7 +141,6 @@ angular.module('portalApp')
             init: init,
             loading: loading
         };
-
 }])
 
 // Custom directive example
