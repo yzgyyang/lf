@@ -1,10 +1,15 @@
+function getTable(){
+    var table = db.Execute('SELECT * FROM lostTable');
+    return table;
+                 
 function getFound(){
     
 }
 function getLost(){
 }
 function addLost(){
-    db.execute('INSERT INTO lostTable VALUES(@currentUser,@title,@details)');
+    db.Execute('INSERT TOP(N) INTO lostTable VALUES(@currentUser,@title,@details)');
+    return getTable();
 }
 function addFound(){
 }
