@@ -1,3 +1,8 @@
+// OPEN DATA API
+function getOpenData() {
+    return proxy.GetProxy('https://api.uwaterloo.ca/v2/buildings/'+ args.Get('abbr') + '.json?key=' + privateDataService.Get('apikey_charlie'));
+}
+
 function getTable(){    
     var table = db.Execute('SELECT * FROM @table');
     return table;
