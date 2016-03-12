@@ -12,7 +12,7 @@
     <div class="collapseMe">
         <widget-row>
             <widget-cell>
-                <h2>Look for items?</h2>
+                <h2>Looking for items?</h2>
             </widget-cell>
         </widget-row>
 
@@ -30,7 +30,7 @@
 
 
             <widget-searching>
-                <widget-list list="item in searchResults" show-items="3">
+                <widget-list list="item in searchResults" show-items="5">
                     <widget-row clickable ng-click="showDetails(item)">
                         <widget-cell fill>{{item.title}}</widget-cell>
                         <widget-cell>
@@ -45,7 +45,7 @@
             <widget-not-searching>
                 <widget-row>
                     <widget-cell>
-                        <h2>Item List</h2>
+                        <h2>Lost</h2>
                         <div class="btn-group-vertical" role="group">
                             <input type="text" class="form-control" ng-model="insertLostTitle.value" placeholder="Title"/>
                             <input type="text" class="form-control" ng-model="insertLostDetails.value" placeholder="Details"/>
@@ -78,7 +78,7 @@
     </li>
 </script>
 
-<!-- VIEW FOR THE SEARCH AND LIST -->
+<!-- VIEW FOR THE SEARCH AND LIST EXAMPLE -->
 <script type="text/ng-template" id="details.html">
     <widget-list-controls prev-click="prevItem" next-click="nextItem" original-item="item.value" prev-text="Previous Item"
                           next-text="Next Item"></widget-list-controls>
@@ -93,4 +93,3 @@
         </widget-cell>
     </widget-row>
 </script>
-

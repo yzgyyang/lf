@@ -9,6 +9,8 @@ angular.module('portalApp')
         "widgetMenu": "widgetMenu.html"
     };
 
+    $scope.item = {value:''};
+
     // Import variables and functions from service
     $scope.data = lfFactory.data;
     $scope.lostinput=lfFactory.lostInput;
@@ -35,11 +37,11 @@ angular.module('portalApp')
 	$scope.portalHelpers.showView('main.html', 1);
     // Model for the search and list example
     $scope.model = [{
-        title: "item 1",
+        title: "Watcard",
         details: "item 1 details",
         category: '1'
     }, {
-        title: "item 2",
+        title: "pen",
         details: "item 2 details",
         category: '2'
     }, {
@@ -81,6 +83,30 @@ angular.module('portalApp')
         $scope.showDetails(nextItem);
     }
 }])
+
+    // Handle click on an item in the list and search example
+    $scope.showDetails = function (item) {
+        // Set which item to show in the details view
+        $scope.item.value = item;
+        // Show details view in the second column
+        $scope.portalHelpers.showView('details.html', 2);
+    };
+
+    // Handle "previous item" click from the details page
+    $scope.prevItem = function () {
+        // get previous items in the list
+        var prevItem = $scope.portalHelpers.getPrevListItem();
+        // refresh details view with the new item
+        $scope.showDetails(prevItem);
+    }
+
+    $scope.nextItem = function () {
+        var nextItem = $scope.portalHelpers.getNextListItem();
+        $scope.showDetails(nextItem);
+    }
+
+}])
+
 // Factory maintains the state of the widget
 .factory('lfFactory', ['$http', '$rootScope', '$filter', '$q', function ($http, $rootScope, $filter, $q) {
 		
