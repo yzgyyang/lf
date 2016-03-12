@@ -48,6 +48,7 @@ angular.module('portalApp')
     $scope.data = lfFactory.data;
     $scope.lostInputDetails=lfFactory.lostInputDetails;
     $scope.lostInputTitle=lfFactory.lostInputTitle;
+    $scope.lostTable=lfFactory.lostTable;
 
     // initialize the service
     lfFactory.init($scope);
@@ -88,7 +89,7 @@ angular.module('portalApp')
         $scope.showDetails(nextItem);
     }
     // INSERTS ITEM INTO SQL TABLE
-   /*$scope.insertInput = function(){
+   $scope.insertInput = function(){
        
         $scope.portalHelpers.invokeServerFunction('addLost',{
             title : $scope.lostInputTitle.value,
@@ -97,7 +98,7 @@ angular.module('portalApp')
             $scope.lostTable.value=result;
         });
         $scope.lostInputTitle.value="";
-        $scope.lostInputDetails.value="";}*/
+        $scope.lostInputDetails.value="";}
     
    
     $scope.removeItem = function (index) {
@@ -132,7 +133,7 @@ angular.module('portalApp')
         var loading = {
             value: true
         };
-    var lostTable = {
+        var lostTable = {
             value: null
         };
 
@@ -167,7 +168,7 @@ angular.module('portalApp')
             init: init,
             loading: loading,
             lostInputTitle: lostInputTitle,
-            lostInputDetails: lostInputDetails
+            lostInputDetails: lostInputDetails,
             lostTable: lostTable
         };
 }])
