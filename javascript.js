@@ -58,9 +58,9 @@ angular.module('portalApp')
     };
     
     // Handle click on delete button
-    $scope.removeItem = function(index) {
-        $scope.model.splice(index.1);
-    }
+     // $scope.removeItem = function($index) {
+     //     $scope.model.splice(index.1);
+     // }
         
     
     // Handle "previous item" click from the details page
