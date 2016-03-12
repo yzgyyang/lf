@@ -176,6 +176,7 @@ angular.module('portalApp')
         }
         // INSERTS ITEM INTO SQL TABLE
     $scope.insertInput = function() {
+        console.log($scope.isChecked);
         if ($scope.isChecked == true) {
             $scope.portalHelpers.invokeServerFunction('addLost', {
                 title: $scope.lostInputTitle.value,
@@ -188,13 +189,14 @@ angular.module('portalApp')
             $scope.lostInputTitle.value = "";
             $scope.lostInputDetails.value = "";
         } else{
+            console.log("added found", result);
             $scope.portalHelpers.invokeServerFunction('addFound', {
                 title: $scope.foundInputTitle.value,
                 details: $scope.foundInputDetails.value,
                 table: 'foundTable'
             }).then(function(result) {
                 $scope.foundTable.value = result;
-                console.log("added found", result);
+                
             });
             $scope.foundInputTitle.value = "";
             $scope.foundInputDetails.value = "";
