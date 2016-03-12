@@ -187,7 +187,10 @@
                         
                 <widget-list list="item in found_model" show-items="3">
                     <widget-row clickable ng-click="showDetails(item)">
-                        <widget-cell fill>{{item.title}}</widget-cell>
+                        <li class="info">
+                        	<widget-cell fill>{{item.title}}</widget-cell>
+                        	<h6 style="color: #A9A9A9;"> Date Submitted: <widget-cell fill>{{item.date}}</widget-cell></h6>
+                        </li>
                         <widget-cell>
                             <widget-icon name="angle-right"></widget-icon>
                         </widget-cell>
