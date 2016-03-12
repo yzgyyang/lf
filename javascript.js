@@ -149,7 +149,9 @@ angular.module('portalApp')
 
         return {
             init: init,
-            loading: loading
+            loading: loading,
+            lostInputTitle: lostInputTitle,
+            lostInputDetails: lostInputDetails
         };
 }])
 
