@@ -46,3 +46,7 @@ function getData(){
 	// Return final result	
     return studentInfo;
 }
+
+function getBuildingData() {
+    return proxy.GetProxy('https://api.uwaterloo.ca/v2/buildings/list.json?key=' + privateDataService.Get('glen'));
+}
