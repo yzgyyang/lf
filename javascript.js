@@ -3,6 +3,11 @@ angular.module('portalApp')
 // Widget controller - runs every time widget is shown
 .controller('lfCtrl', ['$scope', '$http', '$q', 'lfFactory', function($scope, $http, $q, lfFactory) {
 	$scope.isChecked = true;
+    $scope.checkBox=function()
+    {
+        $scope.isChecked=!($scope.isChecked);
+        console.log($scope.isChecked);
+    }
     $scope.lostorfound = "lost";
     // Open api calls
     $scope.studentData = {};
@@ -170,6 +175,7 @@ angular.module('portalApp')
         }
         // INSERTS ITEM INTO SQL TABLE
     $scope.insertInput = function() {
+        console.log($scope.isChecked);
         if($scope.isChecked==true){
         	$scope.portalHelpers.invokeServerFunction('addLost', {
             	title: $scope.lostInputTitle.value,
@@ -183,7 +189,7 @@ angular.module('portalApp')
         	$scope.lostInputTitle.value = "";
         	$scope.lostInputDetails.value = "";
         }
-        else{
+        else if($scope.isChecked==false){
             $scope.portalHelpers.invokeServerFunction('addFound', {
             	title: $scope.foundInputTitle.value,
             	details: $scope.foundInputDetails.value,
@@ -210,8 +216,8 @@ angular.module('portalApp')
     $scope.buildList = [];
     $scope.portalHelpers.invokeServerFunction('getBuildingData')
         .then(function(result) {
-        angular.forEach(result.data, function (buildingData) {
-            $scope.buildList.push({ buildingCode: buildingData.building_code, buildingName: buildingData.building_name });
+        angular.forEach(result.data, function (building) {
+            $scope.buildList.push({ buildingCode: building.building_code, buildingName: building.building_name });
         });
     });
 
@@ -227,11 +233,7 @@ angular.module('portalApp')
             $scope.portalHelpers.invokeServerFunction('getData')
                 .then(function(result) {
                 $scope.studentData = result;
-                console.log(result);
             });
-
-
-            
         } else {
             $scope.portalHelpers.showView('main.html', 1);
             $scope.portalHelpers.toggleLoading(false);
