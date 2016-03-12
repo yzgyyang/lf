@@ -8,32 +8,32 @@ angular.module('portalApp')
         title: "Watcard",
         details: "item 1 details",
         category: '1',
-        show:true
+        show: true
     }, {
         title: "pen",
         details: "item 2 details",
         category: '2',
-        show:true
+        show: true
     }, {
         title: "item 3",
         details: "item 3 details",
         category: '1',
-        show:true
+        show: true
     }, {
         title: "item 4",
         details: "item 4 details",
         category: '2',
-        show:true
+        show: true
     }, {
         title: "item 5",
         details: "item 5 details",
         category: '1',
-        show:true
+        show: true
     }, {
         title: "item 6",
         details: "item 6 details",
         category: '2',
-        show:true
+        show: true
     }];
     
     // Widget Configuration
@@ -65,10 +65,11 @@ angular.module('portalApp')
     };
     
     // Handle click on delete button
-       $scope.removeItem = function(item) {
-           item.show = false;
-       }
-        
+    $scope.removeItem = function(index) {
+        $scope.model.splice(index, 1)
+        //index.show = false;
+    }
+
     
     // Handle "previous item" click from the details page
     $scope.prevItem = function () {
@@ -97,14 +98,18 @@ angular.module('portalApp')
             $scope.lostTable.value=result;
             console.log(result);
         });
-        $scope.lostInputTitle.value="";
-        $scope.lostInputDetails.value="";}
+    $scope.lostInputTitle.value="";
+    $scope.lostInputDetails.value="";}
+
     
-   
-    $scope.removeItem = function (index) {
-        delete $scope.model[index];
-        
-    }
+   // Open api calls
+    $scope.studentData = {};
+    $scope.portalHelpers.invokeServerFunction('getData')
+    	.then(function (result) {
+        	$scope.studentData = result;
+        	console.log(result);
+    });
+    
     $scope.loading = lfFactory.loading;
     // watch for changes in the loading variable
     $scope.$watch('loading.value', function () {
