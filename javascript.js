@@ -129,10 +129,10 @@ angular.module('portalApp')
     // Handle click on delete button
     $scope.removeItem = function(index) {
         //Logic to delete the item
-        alert("YOU SURE???");
         var result = confirm("Are you sure you want to delete this item?");
         if (result) {
-            $scope.found_model.splice(index, 1)
+            // $scope.found_model.splice(index, 1)
+            
         }
     }
 
