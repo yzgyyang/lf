@@ -140,7 +140,6 @@ angular.module('portalApp')
             details : $scope.lostInputDetails.value            
     }).then(function(result){
             $scope.lostTable.value=result;
-            console.log(result);
         });
     $scope.lostInputTitle.value="";
     $scope.lostInputDetails.value="";}
