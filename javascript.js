@@ -99,6 +99,9 @@ angular.module('portalApp')
     $scope.lostInputDetails = lfFactory.lostInputDetails;
     $scope.lostInputTitle = lfFactory.lostInputTitle;
     $scope.lostTable = lfFactory.lostTable;
+    $scope.foundInputDetails = lfFactory.foundInputDetails;
+    $scope.foundInputTitle = lfFactory.foundInputTitle;
+    $scope.foundTable = lfFactory.foundTable;
 
     // initialize the service
     lfFactory.init($scope);
