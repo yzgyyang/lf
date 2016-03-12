@@ -89,10 +89,10 @@ angular.module('portalApp')
             
     })}
     
-    $scope.
-    Item = function (index) {
-    	console.log("123", index);
-    }
+    // $scope.
+    // Item = function (index) {
+    // 	console.log("123", index);
+    // }
     
     // watch for changes in the loading variable
     $scope.$watch('loading.value', function () {
