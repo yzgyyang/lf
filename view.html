@@ -19,140 +19,8 @@
                 </button>
             </widget-cell>
         </widget-row>
-<widget-search 
-             label="" 
-             placeholder="Search here" 
-             search-results-title="Behold"
-             data="found_model" 
-             min-char="2" 
-             fields="['title','details']">
-            <widget-filter 
-                    fields="['category']" 
-                    filters="[{value:'1',text:'Watcard'},{value:'2',text:'Food'},{value:'3',text:'Geese'}]">
-            </widget-filter>
 
-            <widget-searching>
-                <widget-list list="item in searchResults" show-items="10">
-                    <widget-row clickable ng-click="showDetails(item)">
-                        <widget-cell fill>{{item.title}}</widget-cell>
-                        <widget-cell>
-                            <widget-icon name="angle-right"></widget-icon>
-
-                        </widget-cell>
-                    </widget-row>
-                </widget-list>
-            </widget-searching>
-
-
-            <widget-not-searching>
-                <widget-row>
-                    <widget-cell>
-                        <h2>Found</h2>
-                        
-                
-          <!-- Add new item at Second Page -->
-				<div class="btn-group-vertical" role="group">
-                    <button class="btn btn-default" ng-click="showInColumnOne('second.html')">
-                        Add new
-                    </button>
-                </div>
-                                
-                </widget-cell>
-                </widget-row>
-                        
-                <widget-list list="item in foundTable.value" show-items="5">
-                    <widget-row clickable ng-click="showDetails(item)">
-                        <li class="info">
-                        	<widget-cell fill>{{item.title}}</widget-cell>
-                        	<h6 style="color: #A9A9A9;"> Date Submitted: <widget-cell fill>{{item.date}}</widget-cell></h6>
-                        </li>
-                        <widget-cell>
-                            <widget-icon name="angle-right"></widget-icon>
-                        </widget-cell>
-                    </widget-row>
-                    <button class="btn btn-default remove" ng-click="removeItem($index)"  >
-                        Remove item
-                    </button>
-                </widget-list>
-            </widget-not-searching>
-        </widget-search>
-    </div>
-</script>
-        
-<!-- Second View -->
-<script type="text/ng-template" id="second.html">
-    <widget-row>
-        <widget-cell>
-            <h2>Add new</h2>
-            <p>
-                Please review the existing posts</a> before adding a new item.
-            </p>
-            <p>
-                Exeminer les postes existants avant d'ajourter un nouvel élément, s'il vous plaît!</p>
-            <div class="onoffswitch">
-    			<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" ng-click="checkBox()" checked>
-    				<label class="onoffswitch-label" for="myonoffswitch">
-        				<span class="onoffswitch-inner"></span>
-       				 	<span class="onoffswitch-switch"></span>
-    				</label>
-			</div>
-				<div class="btn-group-vertical" role="group">
-                	<input type="text" class="form-control form-title" ng-model="lostInputTitle.value" placeholder="Title"/>
-                    <br />
-                   	<input type="text" class="form-control form-details" ng-model="lostInputDetails.value" placeholder="Details"/>
-                    <br />    
-                    <button class="btn btn-default upload-btn" ng-click="uploadPhoto()"><widget-icon style="width:20px;"name="upload"></widget-icon><h5> Upload Image</h5>
-                    </button>
-                    <br/>
-                    <button class="btn btn-default" ng-click="insertInput()">
-                         Add new item
-                    </button>
-                </div>
-        </widget-cell>
-       
-    </widget-row>
-</script>
-
-<!-- Menu -->
-<script type="text/ng-template" id="widgetMenu.html">
-    <li>
-        <a ng-click="menuButtonClick()">
-            Logout
-        </a>
-    </li>
-</script>
-
-<!-- VIEW FOR THE SEARCH AND LIST -->
-<script type="text/ng-template" id="details.html">
-    <widget-list-controls prev-click="prevItem" next-click="nextItem" original-item="item.value" prev-text="Previous Item"
-                          next-text="Next Item"></widget-list-controls>
-    <widget-row>
-        <widget-cell>
-            <h2>{{item.value.title}}</h2>
-        </widget-cell>
-    </widget-row>
-    <widget-row>
-        <widget-cell>
-            <div class="pHighlight">{{item.value.details}}</div>
-        </widget-cell>
-        <a href="mailto:example@uwaterloo.ca?subject=UWPortal%20Lost%20%26%20Found%20Notification&amp;body=Dear%2C%0A%0AYour%20lost%20item%20posted%20on%20Portal%20has%20been%20found%20by%20example%40uwaterloo.ca!%20Hallelujah!%0A%0AUWPortal%20Lost%20%26%20Found%20Team">Notify by E-Mail</a>
-    </widget-row>
-</script>
-
-
-
-<!-- Found page -->
-<script type="text/ng-template" id="found.html">
-    <div class="collapseMe">
-        <widget-row>
-            <widget-cell>
-                <h2>Found someone's belongings?</h2><br>
-                <button class="btn btn-default tofound" ng-click="toLost()">
-                        Switch to Lost
-                    </button>
-            </widget-cell>
-        </widget-row>
-<widget-search 
+        <widget-search 
              label="" 
              placeholder="Search here" 
              search-results-title="Behold"
@@ -202,9 +70,145 @@
                     <widget-row clickable ng-click="showDetails(item)">
                         <li class="info">
                         	<widget-cell fill>{{item.title}}</widget-cell>
-                        	<h6 style="color: #A9A9A9;"> Date Submitted: <widget-cell fill>{{item.date}}</widget-cell></h6>
+                        	<h6 style="color: #A9A9A9;"> Date Submitted: <widget-cell fill>{{item.time}}</widget-cell></h6>
                         </li>
                        
+                        <widget-cell>
+                            <widget-icon name="angle-right"></widget-icon>
+                        </widget-cell>
+                    </widget-row>
+                    <button class="btn btn-default remove" ng-click="removeItem($index)"  ng-show="item.id == studentData.studentNum">
+                        Remove item
+                    </button>
+                </widget-list>
+            </widget-not-searching>
+        </widget-search>
+    </div>
+</script>
+        
+<!-- Second View -->
+<script type="text/ng-template" id="second.html">
+    <widget-row>
+        <widget-cell>
+            <h2>Add new</h2>
+            <p>
+                Please review the existing posts</a> before adding a new item.
+            </p>
+            <p>
+                Exeminer les postes existants avant d'ajourter un nouvel élément, s'il vous plaît!</p>
+            <div class="onoffswitch">
+    			<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" ng-model="isChecked">
+    				<label class="onoffswitch-label" for="myonoffswitch">
+        				<span class="onoffswitch-inner"></span>
+       				 	<span class="onoffswitch-switch"></span>
+    				</label>
+			</div>
+				<div class="btn-group-vertical" role="group">
+                	<input type="text" class="form-control form-title" ng-model="lostInputTitle.value" placeholder="Title"/>
+                    <br />
+                   	<input type="text" class="form-control form-details" ng-model="lostInputDetails.value" placeholder="Details"/>
+                    <br />
+                    <button class="btn btn-default upload-btn"><widget-icon style="width:20px;"name="upload"></widget-icon><h5> Upload Image</h5>
+                    </button>
+                    <br/>
+                    <button class="btn btn-default" ng-click="insertInput()">
+                         Add new item
+                    </button>
+                </div>
+        </widget-cell>
+       
+    </widget-row>
+</script>
+
+<!-- Menu -->
+<script type="text/ng-template" id="widgetMenu.html">
+    <li>
+        <a ng-click="menuButtonClick()">
+            Logout
+        </a>
+    </li>
+</script>
+
+<!-- VIEW FOR THE SEARCH AND LIST -->
+<script type="text/ng-template" id="details.html">
+    <widget-list-controls prev-click="prevItem" next-click="nextItem" original-item="item.value" prev-text="Previous Item"
+                          next-text="Next Item"></widget-list-controls>
+    <widget-row>
+        <widget-cell>
+            <h2>{{item.value.title}}</h2>
+        </widget-cell>
+    </widget-row>
+    <widget-row>
+        <widget-cell>
+            <div class="pHighlight">{{item.value.details}}</div>
+        </widget-cell>
+        <button class="btn btn-default" ng-click="notify()">
+            Notify by E-mail
+        </button>
+    </widget-row>
+</script>
+
+
+
+<!-- Found page -->
+<script type="text/ng-template" id="found.html">
+    <div class="collapseMe">
+        <widget-row>
+            <widget-cell>
+                <h2>Found someone's belongings?</h2><br>
+                <button class="btn btn-default tofound" ng-click="toLost()">
+                        Switch to Lost
+                    </button>
+            </widget-cell>
+        </widget-row>
+
+        <widget-search 
+             label="" 
+             placeholder="Search here" 
+             search-results-title="Behold"
+             data="found_model" 
+             min-char="2" 
+             fields="['title','details']">
+            <widget-filter 
+                    fields="['category']" 
+                    filters="[{value:'1',text:'Watcard'},{value:'2',text:'Food'},{value:'3',text:'Geese'}]">
+            </widget-filter>
+
+            <widget-searching>
+                <widget-list list="item in searchResults" show-items="10">
+                    <widget-row clickable ng-click="showDetails(item)">
+                        <widget-cell fill>{{item.title}}</widget-cell>
+                        <widget-cell>
+                            <widget-icon name="angle-right"></widget-icon>
+
+                        </widget-cell>
+                    </widget-row>
+                </widget-list>
+            </widget-searching>
+
+
+            <widget-not-searching>
+                <widget-row>
+                    <widget-cell>
+                        <h2>Found</h2>
+                        
+                
+          <!-- Add new item at Second Page -->
+				<div class="btn-group-vertical" role="group">
+                    <button class="btn btn-default" ng-click="showInColumnOne('second.html')">
+                        Add new
+                    </button>
+                </div>
+                                
+                </widget-cell>
+                </widget-row>
+                        
+                <widget-list list="item in foundTable.value" show-items="5">
+                    <widget-row clickable ng-click="showDetails(item)">
+                        <li class="info">
+                        	<widget-cell fill>{{item.title}}</widget-cell>
+                        	<h6 style="color: #A9A9A9;"> Date Submitted: <widget-cell fill>{{item.time}}</widget-cell></h6>
+                        </li>
                         <widget-cell>
                             <widget-icon name="angle-right"></widget-icon>
                         </widget-cell>
