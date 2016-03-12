@@ -67,12 +67,16 @@
                         
                 <widget-list ng-repeat="item in db.lostTable.value" show-items="3">
                     <widget-row clickable ng-click="showDetails(item)">
-                        <widget-cell fill>{{item.title}}</widget-cell>
+                        <li class="info">
+                        	<widget-cell fill>{{item.title}}</widget-cell>
+                        	<h6 style="color: #A9A9A9;"> Date Submitted: <widget-cell fill>{{item.date}}</widget-cell></h6>
+                        </li>
+                       
                         <widget-cell>
                             <widget-icon name="angle-right"></widget-icon>
                         </widget-cell>
                     </widget-row>
-                    <button class="btn btn-default remove" ng-click="removeItem($index)">
+                    <button class="btn btn-default remove" ng-click="removeItem($index)" ng-show="false">
                         Remove item
                     </button>
                 </widget-list>
@@ -187,7 +191,7 @@
                             <widget-icon name="angle-right"></widget-icon>
                         </widget-cell>
                     </widget-row>
-                    <button class="btn btn-default remove" ng-click="removeItem($index)">
+                    <button class="btn btn-default remove" ng-click="removeItem($index)" ng-show="model[$index].id == 123">
                         Remove item
                     </button>
                 </widget-list>
