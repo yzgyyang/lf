@@ -90,13 +90,13 @@ angular.module('portalApp')
         $scope.showDetails(nextItem);
     }
     // INSERTS ITEM INTO SQL TABLE
-   $scope.insertInput = function(){
-       
+   $scope.insertInput = function(){      
         $scope.portalHelpers.invokeServerFunction('addLost',{
             title : $scope.lostInputTitle.value,
             details : $scope.lostInputDetails.value            
     }).then(function(result){
             $scope.lostTable.value=result;
+            console.log(result);
         });
     $scope.lostInputTitle.value="";
     $scope.lostInputDetails.value="";}
