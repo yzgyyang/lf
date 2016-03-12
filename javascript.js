@@ -220,9 +220,7 @@ angular.module('portalApp')
     
     $scope.portalHelpers.invokeServerFunction('getBuildingData')
         .then(function(result) {
-            console.log('RESPONSE', result.data.building_name);
-            console.log('RESPONSE', result.data.building_code);ll
-        
+            console.log('RESPONSE', result);
         });
     
     $scope.loading = lfFactory.loading;
