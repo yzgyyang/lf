@@ -10,59 +10,71 @@ angular.module('portalApp')
         title: "Watcard",
         details: "il n'y a pas de détails!",
         category: '1',
+        date: "2016-04-12 10:00",
         id: '798654123'
     }, {
         title: "stylo",
         details: "un stylo",
+        date: "2016-04-12 10:00",
         category: '2'
     }, {
         title: "pizza",
         details: "nouvelle!",
+        date: "2016-04-12 10:00",
         category: '1'
     }, {
         title: "item 4",
         details: "item 4 details",
+        date: "2016-04-12 10:00",
         category: '2'
     }, {
         title: "item 5",
         details: "item 5 details",
+        date: "2016-04-12 10:00",
         category: '1'
     }, {
         title: "item 6",
         details: "item 6 details",
-        category: '2'
+        date: "2016-04-12 10:00",
+        category: '2',
     }];
         // Model for the search and list example
     $scope.model = [{
         title: "Watcard",
         details: "item 1 details",
         category: '1',
-        show: true
+        show: true,
+        id: 123
     }, {
         title: "pen",
         details: "item 2 details",
         category: '2',
-        show: true
+        show: true,
+        id: 123
     }, {
         title: "item 3",
         details: "item 3 details",
         category: '1',
-        show: true
+        show: true,
+        id: 123
     }, {
         title: "item 4",
         details: "item 4 details",
         category: '2',
-        show: true
+        show: true,
+        id: 123
     }, {
         title: "item 5",
         details: "item 5 details",
         category: '1',
-        show: true
+        show: true,
+        id: 123
     }, {
         title: "item 6",
         details: "item 6 details",
         category: '2',
-        show: true
+        show: true,
+        id: 20472237
     }];
     
     // Widget Configuration
@@ -141,7 +153,6 @@ angular.module('portalApp')
             details : $scope.lostInputDetails.value            
     }).then(function(result){
             $scope.lostTable.value=result;
-            console.log(result);
         });
     $scope.lostInputTitle.value="";
     $scope.lostInputDetails.value="";}
