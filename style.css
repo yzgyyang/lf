@@ -15,10 +15,18 @@ h2{
 .info{
     display: block;
 }
+h5{
+    display:inline;
+    padding-left: 30px;
+}
 
 h6{
     display: inline; 
     padding-left:8px;
+}
+.upload-btn{
+    height:50px;
+    width:70px !important;
 }
 
 .btn.btn-default.remove {
