@@ -31,7 +31,7 @@ angular.module('portalApp')
         details: "item 4 details",
         date: "2016-04-12 10:00",
         category: '2',
-        id: 123
+        id: $scope.studentData.studentNum
     }, {
         title: "item 5",
         details: "item 5 details",
@@ -43,7 +43,7 @@ angular.module('portalApp')
         details: "item 6 details",
         date: "2016-04-12 10:00",
         category: '2',
-        id: 123
+        id: $scope.studentData.studentNum
     }];
     // Model for the search and list example
     $scope.model = [{
@@ -171,7 +171,12 @@ angular.module('portalApp')
         }
     }
 
-
+// Open API for location
+$scope.portalHelpers.invokeServerFunction('getOpenData', {abbr:"MC"})
+ .then(function(result){
+    console.log('RESPONSE', result.data.building_name);
+    console.log('RESPONSE', result.data.building_code);
+}); 
 
     $scope.loading = lfFactory.loading;
     // watch for changes in the loading variable
@@ -197,11 +202,6 @@ angular.module('portalApp')
             $scope.portalHelpers.showView('main.html', 1);
             $scope.portalHelpers.toggleLoading(false);
         }
-    });
-    
-    $scope.$watch('page', function() {
-        console.log('12312321');
-    	$scope.$broadcast();
     });
 
 }])
