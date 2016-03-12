@@ -105,7 +105,7 @@ angular.module('portalApp')
         delete $scope.model[index];
         
     }
-    
+    $scope.loading = lfFactory.loading;
     // watch for changes in the loading variable
     $scope.$watch('loading.value', function () {
         // if loading
