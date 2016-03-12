@@ -3,8 +3,6 @@ angular.module('portalApp')
 // Widget controller - runs every time widget is shown
 .controller('lfCtrl', ['$scope', '$http', '$q', 'lfFactory', function ($scope, $http, $q, lfFactory) {
 
-    $scope.title = { value: "" };
-    $scope.details = { value: "" };
     $scope.lostorfound="lost";
     
     //models for founder
