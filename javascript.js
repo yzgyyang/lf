@@ -90,8 +90,9 @@ angular.module('portalApp')
     })}
     
    
-    Item = function (index) {
-    	console.log("123", index);
+    $scope.removeItem = function (index) {
+        delete $scope.model[index];
+        
     }
     
     // watch for changes in the loading variable
