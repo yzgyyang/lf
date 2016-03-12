@@ -194,11 +194,6 @@ angular.module('portalApp')
             $scope.portalHelpers.toggleLoading(false);
         }
     });
-    
-    $scope.$watch('page', function() {
-        console.log('12312321');
-    	$scope.$broadcast();
-    });
 
 }])
 
