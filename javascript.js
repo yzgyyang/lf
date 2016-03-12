@@ -166,6 +166,10 @@ angular.module('portalApp')
         $scope.lostInputTitle.value = "";
         $scope.lostInputDetails.value = "";
     }
+                $scope.portalHelpers.invokeServerFunction('getTable', {table:lostTable})
+                .then(function(result) {
+                    $scope.lostTable = result;
+                }); 
 
 // Open API for location
 $scope.portalHelpers.invokeServerFunction('getOpenData', {abbr:"MC"})
@@ -182,11 +186,7 @@ $scope.portalHelpers.invokeServerFunction('getOpenData', {abbr:"MC"})
             // show loading screen in the first column, and don't append it to browser history
             $scope.portalHelpers.showView('loading.html', 1, false);
             // show loading animation in place of menu button
-            $scope.portalHelpers.toggleLoading(true);
-            $scope.portalHelpers.invokeServerFunction('getTable', {table:lostTable})
-                .then(function(result) {
-                    $scope.lostTable = result;
-                });           
+            $scope.portalHelpers.toggleLoading(true);          
             $scope.portalHelpers.invokeServerFunction('getData')
                 .then(function(result) {
                 $scope.studentData = result;
