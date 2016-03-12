@@ -167,7 +167,12 @@ angular.module('portalApp')
         $scope.lostInputDetails.value = "";
     }
 
-
+// Open API for location
+$scope.portalHelpers.invokeServerFunction('getOpenData', {abbr:"MC"})
+ .then(function(result){
+    console.log('RESPONSE', result.data.building_name);
+    console.log('RESPONSE', result.data.building_code);
+}); 
 
     $scope.loading = lfFactory.loading;
     // watch for changes in the loading variable
