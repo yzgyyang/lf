@@ -4,8 +4,10 @@ function getOpenData() {
 }
 
 function getTable(){    
+    console.log
     var name = args.Get("table");
-    var table = db.Execute('SELECT * FROM' +name);
+    console.log("name");
+    var table = db.Execute('SELECT * FROM' + name);
     return table;
 }                 
 function getFound(){
