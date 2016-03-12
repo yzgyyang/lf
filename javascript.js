@@ -3,6 +3,11 @@ angular.module('portalApp')
 // Widget controller - runs every time widget is shown
 .controller('lfCtrl', ['$scope', '$http', '$q', 'lfFactory', function($scope, $http, $q, lfFactory) {
 	$scope.isChecked = true;
+    $scope.checkBox=function()
+    {
+        $scope.isChecked=!($scope.isChecked);
+        console.log($scope.isChecked);
+    }
     $scope.lostorfound = "lost";
     // Open api calls
     $scope.studentData = {};
@@ -170,6 +175,7 @@ angular.module('portalApp')
         }
         // INSERTS ITEM INTO SQL TABLE
     $scope.insertInput = function() {
+        console.log($scope.isChecked);
         if($scope.isChecked==true){
         	$scope.portalHelpers.invokeServerFunction('addLost', {
             	title: $scope.lostInputTitle.value,
@@ -183,7 +189,7 @@ angular.module('portalApp')
         	$scope.lostInputTitle.value = "";
         	$scope.lostInputDetails.value = "";
         }
-        else{
+        else if($scope.isChecked==false){
             $scope.portalHelpers.invokeServerFunction('addFound', {
             	title: $scope.foundInputTitle.value,
             	details: $scope.foundInputDetails.value,
