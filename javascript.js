@@ -2,11 +2,7 @@ angular.module('portalApp')
 
 // Widget controller - runs every time widget is shown
 .controller('lfCtrl', ['$scope', '$http', '$q', 'lfFactory', function($scope, $http, $q, lfFactory) {
-    $scope.isChecked = true;
-    $scope.checkBox=function(){
-        $scope.isChecked=!($scope.isChecked);
-        console.log($scope.isChecked);
-    }
+	$scope.isChecked = true;
     $scope.lostorfound = "lost";
     // Open api calls
     $scope.studentData = {};
@@ -102,11 +98,7 @@ angular.module('portalApp')
     $scope.data = lfFactory.data;
     $scope.lostInputDetails = lfFactory.lostInputDetails;
     $scope.lostInputTitle = lfFactory.lostInputTitle;
-    $scope.foundInputDetails = lfFactory.foundInputDetails;
-    $scope.foundInputTitle = lfFactory.foundInputTitle;
     $scope.lostTable = lfFactory.lostTable;
-    $scope.foundTable = lfFactory.foundTable;
-
 
     // initialize the service
     lfFactory.init($scope);
@@ -132,13 +124,11 @@ angular.module('portalApp')
 
     // Handle click on delete button
     $scope.removeItem = function(index) {
-        //Logic to delete the item
-        var result = confirm("Are you sure you want to delete this item?");
+    	//Logic to delete the item
+		var result = confirm("Are you sure you want to delete this item?");
         if (result) {
-            // $scope.found_model.splice(index, 1)
-            
-        }
-    }
+        $scope.found_model.splice(index, 1)
+        }}
 
     $scope.addItem = function() {
         var title = $scope.title.value;
@@ -160,20 +150,16 @@ angular.module('portalApp')
         // Show view in column one
         $scope.portalHelpers.showView(viewname, 2)
     };
-    $scope.portalHelpers.invokeServerFunction('getTable', {
-            table: 'lostTable'
-        })
-        .then(function(result) {
-            console.log(result);
-            $scope.lostTable.value = result;
-        });
-    $scope.portalHelpers.invokeServerFunction('getTable', {
-            table: 'foundTable'
-        })
-        .then(function(result) {
-            console.log(result);
-            $scope.foundTable.value = result;
-        });
+     $scope.portalHelpers.invokeServerFunction('getTable', {table:'lostTable'})
+                .then(function(result) {
+        			console.log(result); 
+                    $scope.lostTable.value = result;
+                }); 
+    $scope.portalHelpers.invokeServerFunction('getTable', {table:'foundTable'})
+                .then(function(result) {
+        			console.log(result); 
+                    $scope.foundTable.value = result;
+                }); 
 
     $scope.nextItem = function() {
             var nextItem = $scope.portalHelpers.getNextListItem();
@@ -181,51 +167,31 @@ angular.module('portalApp')
         }
         // INSERTS ITEM INTO SQL TABLE
     $scope.insertInput = function() {
-        console.log($scope.isChecked);
-        if ($scope.isChecked == true) {
-            $scope.portalHelpers.invokeServerFunction('addLost', {
-                title: $scope.lostInputTitle.value,
-                details: $scope.lostInputDetails.value,
+        if($scope.isChecked==true){
+        	$scope.portalHelpers.invokeServerFunction('addLost', {
+            	title: $scope.lostInputTitle.value,
+            	details: $scope.lostInputDetails.value,
+                time: moment().format('MMMM Do YYYY, h:mm:ss a'),
                 table: 'lostTable'
-            }).then(function(result) {
-                $scope.lostTable.value = result;
+        	}).then(function(result) {
+            	$scope.lostTable.value = result;
                 console.log("added lost", result);
-            });
-            $scope.lostInputTitle.value = "";
-            $scope.lostInputDetails.value = "";
-        } else{
-            console.log("added found", result);
-            $scope.portalHelpers.invokeServerFunction('addFound', {
-                title: $scope.foundInputTitle.value,
-                details: $scope.foundInputDetails.value,
-                table: 'foundTable'
-            }).then(function(result) {
-                $scope.foundTable.value = result;
-                
-            });
-            $scope.foundInputTitle.value = "";
-            $scope.foundInputDetails.value = "";
+        	});
+        	$scope.lostInputTitle.value = "";
+        	$scope.lostInputDetails.value = "";
+        }
+        else if($scope.isChecked==false){
         }
     }
+            
 
+// Open API for location
+$scope.portalHelpers.invokeServerFunction('getOpenData', {abbr:"MC"})
+ .then(function(result){
+    console.log('RESPONSE', result.data.building_name);
+    console.log('RESPONSE', result.data.building_code);
+}); 
 
-    // Open API for location
-    $scope.portalHelpers.invokeServerFunction('getOpenData', {
-            abbr: "MC"
-        })
-        .then(function(result) {
-            console.log('RESPONSE', result.data.building_name);
-            console.log('RESPONSE', result.data.building_code);
-        });
-    $scope.buildList = [];
-    
-    $scope.portalHelpers.invokeServerFunction('getBuildingData')
-        .then(function(result) {
-        	angular.forEach(result.data, function (buildingData) {
-            	$scope.buildList.push({ buildingCode: buildingData.building_code, buildingName: buildingData.building_name });
-            });
-        });
-    
     $scope.loading = lfFactory.loading;
     // watch for changes in the loading variable
     $scope.$watch('loading.value', function() {
@@ -234,24 +200,24 @@ angular.module('portalApp')
             // show loading screen in the first column, and don't append it to browser history
             $scope.portalHelpers.showView('loading.html', 1, false);
             // show loading animation in place of menu button
-            $scope.portalHelpers.toggleLoading(true);
+            $scope.portalHelpers.toggleLoading(true);          
             $scope.portalHelpers.invokeServerFunction('getData')
                 .then(function(result) {
-                    $scope.studentData = result;
-                    console.log(result);
-                });
+                $scope.studentData = result;
+                console.log(result);
+            });
 
-
+            
         } else {
             $scope.portalHelpers.showView('main.html', 1);
             $scope.portalHelpers.toggleLoading(false);
         }
     });
-
+    
 
 
 }])
-
+ 
 
 // Factory maintains the state of the widget
 .factory('lfFactory', ['$http', '$rootScope', '$filter', '$q', function($http, $rootScope, $filter, $q) {
@@ -267,23 +233,17 @@ angular.module('portalApp')
     var lostTable = {
         value: null
     };
-    var foundTable = {
-        value: null
-    };
+
 
     var lostInputDetails = {
-        value: null
-    };
-    var foundInputDetails = {
-        value: null
-    };
-    var foundInputTitle = {
         value: null
     };
     var lostInputTitle = {
         value: null
     };
-
+    var foundInput = {
+        value: null
+    };
 
     var sourcesLoaded = 0;
 
@@ -305,11 +265,8 @@ angular.module('portalApp')
         init: init,
         loading: loading,
         lostInputTitle: lostInputTitle,
-        foundInputTitle: lostInputTitle,
-        foundInputDetails: foundInputDetails,
         lostInputDetails: lostInputDetails,
-        lostTable: lostTable,
-        foundTable: foundTable
+        lostTable: lostTable
     };
 }])
 
