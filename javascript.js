@@ -180,7 +180,19 @@ angular.module('portalApp')
         	$scope.lostInputTitle.value = "";
         	$scope.lostInputDetails.value = "";
         }
-        else if($scope.isChecked==false){
+        else{
+            $scope.portalHelpers.invokeServerFunction('addFound', {
+            	title: $scope.foundInputTitle.value,
+            	details: $scope.foundInputDetails.value,
+                time: moment().format('MMMM Do YYYY, h:mm:ss a'),
+                table: 'foundTable'
+        	}).then(function(result) {
+            	$scope.foundTable.value = result;
+                console.log("added found", result);
+        	});
+        	$scope.foundInputTitle.value = "";
+        	$scope.foundInputDetails.value = "";
+            
         }
     }
             
