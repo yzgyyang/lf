@@ -98,7 +98,11 @@ angular.module('portalApp')
     $scope.data = lfFactory.data;
     $scope.lostInputDetails = lfFactory.lostInputDetails;
     $scope.lostInputTitle = lfFactory.lostInputTitle;
+    $scope.foundInputDetails = lfFactory.foundInputDetails;
+    $scope.foundInputTitle = lfFactory.foundInputTitle;
     $scope.lostTable = lfFactory.lostTable;
+    $scope.foundTable = lfFactory.foundTable;
+    
 
     // initialize the service
     lfFactory.init($scope);
@@ -180,6 +184,16 @@ angular.module('portalApp')
         	$scope.lostInputDetails.value = "";
         }
         else if($scope.isChecked==false){
+            $scope.portalHelpers.invokeServerFunction('addFound', {
+            	title: $scope.foundInputTitle.value,
+            	details: $scope.foundInputDetails.value,
+                table: 'foundTable'
+        	}).then(function(result) {
+            	$scope.lostTable.value = result;
+                console.log("added found", result);
+        	});
+        	$scope.foundInputTitle.value = "";
+        	$scope.foundInputDetails.value = "";
         }
     }
             
@@ -232,17 +246,23 @@ $scope.portalHelpers.invokeServerFunction('getOpenData', {abbr:"MC"})
     var lostTable = {
         value: null
     };
-
+var foundTable = {
+        value: null
+    };
 
     var lostInputDetails = {
+        value: null
+    };
+    var foundInputDetails = {
+        value: null
+    };
+    var foundInputTitle = {
         value: null
     };
     var lostInputTitle = {
         value: null
     };
-    var foundInput = {
-        value: null
-    };
+
 
     var sourcesLoaded = 0;
 
@@ -264,8 +284,11 @@ $scope.portalHelpers.invokeServerFunction('getOpenData', {abbr:"MC"})
         init: init,
         loading: loading,
         lostInputTitle: lostInputTitle,
+        foundInputTitle: lostInputTitle,
+        foundInputDetails: foundInputDetails,
         lostInputDetails: lostInputDetails,
-        lostTable: lostTable
+        lostTable: lostTable,
+        foundTable: foundTable
     };
 }])
 
