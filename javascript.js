@@ -80,7 +80,7 @@ angular.module('portalApp')
             title = $scope.lostInputTitle.value;
             details = $scope.lostInputDetails.value;
             
-    }
+    })}
     
     // watch for changes in the loading variable
     $scope.$watch('loading.value', function () {
