@@ -16,27 +16,32 @@ angular.module('portalApp')
         title: "stylo",
         details: "un stylo",
         date: "2016-04-12 10:00",
-        category: '2'
+        category: '2',
+        id: 123
     }, {
         title: "pizza",
         details: "nouvelle!",
         date: "2016-04-12 10:00",
-        category: '1'
+        category: '1',
+        id: 123
     }, {
         title: "item 4",
         details: "item 4 details",
         date: "2016-04-12 10:00",
-        category: '2'
+        category: '2',
+        id: 123
     }, {
         title: "item 5",
         details: "item 5 details",
         date: "2016-04-12 10:00",
-        category: '1'
+        category: '1',
+        id: 123
     }, {
         title: "item 6",
         details: "item 6 details",
         date: "2016-04-12 10:00",
         category: '2',
+        id: 123
     }];
     // Model for the search and list example
     $scope.model = [{
