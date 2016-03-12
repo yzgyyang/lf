@@ -89,7 +89,7 @@ angular.module('portalApp')
             
     })}
     
-    $scope.
+   
     Item = function (index) {
     	console.log("123", index);
     }
