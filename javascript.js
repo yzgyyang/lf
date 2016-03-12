@@ -73,6 +73,10 @@ angular.module('portalApp')
         $scope.portalHelpers.invokeServerFunction
     }
     
+    $scope.removeItem = function (index) {
+    	console.log("123", index);
+    }
+    
     // watch for changes in the loading variable
     $scope.$watch('loading.value', function () {
         // if loading
@@ -86,6 +90,7 @@ angular.module('portalApp')
             $scope.portalHelpers.toggleLoading(false);
         }
     });
+
 }])
 
 // Factory maintains the state of the widget
@@ -127,7 +132,6 @@ angular.module('portalApp')
             init: init,
             loading: loading
         };
-
 }])
 
 // Custom directive example
