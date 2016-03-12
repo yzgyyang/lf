@@ -46,16 +46,16 @@
                 <widget-row>
                     <widget-cell>
                         <h2>Lost</h2>
-                        <div class="btn-group-vertical" role="group">
-                            <input type="text" class="form-control form-title" style="width: 150px;"ng-model="lostInputTitle.value" placeholder="Title"/>
-                            <br>
-                            <input type="text" class="form-control form-details" style="width: 300px; height: 75px;" ng-model="insertLostDetails.value" placeholder="Details"/>
-                            <br>    
-                            <button class="btn btn-default" ng-click="">
-                                Add new item
-                            </button>
-                        </div>
-                    </widget-cell>
+                        
+                
+          <!-- Add new item at Second Page -->
+				<div class="btn-group-vertical" role="group">
+                    <button class="btn btn-default" ng-click="showInColumnOne('second.html')">
+                        Add new
+                    </button>
+                </div>
+                                
+                </widget-cell>
                 </widget-row>
                 <widget-list list="item in model" show-items="3">
                     <widget-row clickable ng-click="showDetails(item)">
@@ -68,7 +68,24 @@
             </widget-not-searching>
         </widget-search>
     </div>
-
+</script>
+        
+<!-- Second View -->
+<script type="text/ng-template" id="second.html">
+    <widget-row>
+        <widget-cell>
+            <h2>Add new</h2>
+				<div class="btn-group-vertical" role="group">
+                	<input type="text" class="form-control form-title" style="width: 150px;"ng-model="lostInputTitle.value" placeholder="Title"/>
+                    <br>
+                   	<input type="text" class="form-control form-details" style="width: 300px; height: 75px;" ng-model="insertLostDetails.value" placeholder="Details"/>
+                        <br>    
+                            <button class="btn btn-default" ng-click="">
+                                Add new item
+                            </button>
+                        </div>
+        </widget-cell>
+    </widget-row>
 </script>
 
 <!-- Menu -->
@@ -80,7 +97,7 @@
     </li>
 </script>
 
-<!-- VIEW FOR THE SEARCH AND LIST EXAMPLE -->
+<!-- VIEW FOR THE SEARCH AND LIST -->
 <script type="text/ng-template" id="details.html">
     <widget-list-controls prev-click="prevItem" next-click="nextItem" original-item="item.value" prev-text="Previous Item"
                           next-text="Next Item"></widget-list-controls>
