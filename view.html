@@ -69,7 +69,7 @@
                             <widget-icon name="angle-right"></widget-icon>
                         </widget-cell>
                     </widget-row>
-                    <button class="btn btn-default remove" ng-click="removeItem(item)" ng-if="item.show">
+                    <button class="btn btn-default remove" ng-click="removeItem($index)" ng-if="item.show">
                         Remove item
                     </button>
                 </widget-list>
