@@ -57,6 +57,12 @@ angular.module('portalApp')
         $scope.portalHelpers.showView('details.html', 2);
     };
     
+    // Handle click on delete button
+    $scope.removeItem = function(index) {
+        $scope.model.splice(index.1);
+    }
+        
+    
     // Handle "previous item" click from the details page
     $scope.prevItem = function () {
         // get previous items in the list
@@ -83,7 +89,8 @@ angular.module('portalApp')
             
     })}
     
-    $scope.removeItem = function (index) {
+    $scope.
+    Item = function (index) {
     	console.log("123", index);
     }
     
