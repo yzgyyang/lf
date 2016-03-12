@@ -4,6 +4,8 @@ angular.module('portalApp')
 .controller('lfCtrl', ['$scope', '$http', '$q', 'lfFactory', function($scope, $http, $q, lfFactory) {
 
     $scope.lostorfound = "lost";
+    // Open api calls
+    $scope.studentData = {};
 
     //models for founder
     $scope.found_model = [{
@@ -11,7 +13,7 @@ angular.module('portalApp')
         details: "il n'y a pas de détails!",
         category: '1',
         date: "2016-04-12 10:00",
-        id: '1234'
+        id: $scope.studentData.studentNum
     }, {
         title: "stylo",
         details: "un stylo",
@@ -164,13 +166,6 @@ angular.module('portalApp')
     }
 
 
-    // Open api calls
-    $scope.studentData = {};
-    $scope.portalHelpers.invokeServerFunction('getData')
-        .then(function(result) {
-            $scope.studentData = result;
-            console.log(result);
-        });
 
     $scope.loading = lfFactory.loading;
     // watch for changes in the loading variable
@@ -190,6 +185,12 @@ angular.module('portalApp')
             }).then(function (result) {
                 $scope.dbData.value = result;
             });
+            $scope.portalHelpers.invokeServerFunction('getData')
+                .then(function(result) {
+                $scope.studentData = result;
+                console.log(result);
+            });
+
             
         } else {
             $scope.portalHelpers.showView('main.html', 1);
