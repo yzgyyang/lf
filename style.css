@@ -12,6 +12,14 @@
 h2{
     color:black;
 }
+.info{
+    display: block;
+}
+
+h6{
+    display: inline; 
+    padding-left:8px;
+}
 
 .btn.btn-default.remove {
 	float: right
