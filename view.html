@@ -53,12 +53,12 @@
             <widget-not-searching>
                 <widget-row>
                     <widget-cell>
-                        <h2>Lost</h2>
+                        <h2> <b>Lost</b></h2>
                         
                 
           <!-- Add new item at Second Page -->
 				<div class="btn-group-vertical" role="group">
-                    <button class="btn btn-default" ng-click="showInColumnOne('second.html')">
+                    <button class="btn btn-default add-new" ng-click="showInColumnOne('second.html')">
                         Add new
                     </button>
                 </div>
@@ -108,9 +108,8 @@
                     <br />
                    	<input type="text" class="form-control form-details" ng-model="lostInputDetails.value" placeholder="Details"/>
                     <br />
-                    {{ buildList[0].buildingCode }}
-                    <select>
-                        <option ng-repeat"buildingAbbs in buildList" value="buildingAbbs.buildingCode">{{ buildingAbbs.buildingCode }}</option>
+                    <select ng-model="test" ng-options="buildingData.buildingCode as buildingData.buildingName for buildingData in buildList">
+                        <option value="">Select Location</option>
                     </select>
                     <br />
                     <button class="btn btn-default upload-btn"><widget-icon style="width:20px;"name="upload"></widget-icon><h5> Upload Image</h5>
@@ -195,12 +194,12 @@
             <widget-not-searching>
                 <widget-row>
                     <widget-cell>
-                        <h2>Found</h2>
+                        <h2><b>Found</b></h2>
                         
                 
           <!-- Add new item at Second Page -->
 				<div class="btn-group-vertical" role="group">
-                    <button class="btn btn-default" ng-click="showInColumnOne('second.html')">
+                    <button class="btn btn-default add-new" ng-click="showInColumnOne('second.html')">
                         Add new
                     </button>
                 </div>

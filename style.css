@@ -32,7 +32,12 @@ h6{
 .btn.btn-default.remove {
 	float: right
 }
-
+.add-new{
+    background-color:#32CD32 !important;
+    margin-top:10px !important;
+    border-radius:10px !important;
+    margin-bottom: 10px !important;
+}
 
 .onoffswitch {
     position: relative; width: 85px;
