@@ -184,8 +184,7 @@ angular.module('portalApp')
             $scope.portalHelpers.invokeServerFunction('getTable', {table:lostTable})
                 .then(function(result) {
                     $scope.lostTable = result;
-                });
-            
+                });           
             $scope.portalHelpers.invokeServerFunction('insert', {
                 value: $scope.insertValue.value
             }).then(function (result) {
