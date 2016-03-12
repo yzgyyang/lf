@@ -185,12 +185,20 @@ angular.module('portalApp')
     }
             
 
-// Open API for location
-$scope.portalHelpers.invokeServerFunction('getOpenData', {abbr:"MC"})
- .then(function(result){
-    console.log('RESPONSE', result.data.building_name);
-    console.log('RESPONSE', result.data.building_code);
-}); 
+    // Open API for location
+    $scope.portalHelpers.invokeServerFunction('getOpenData', {abbr:"MC"})
+        .then(function(result){
+        console.log('RESPONSE', result.data.building_name);
+        console.log('RESPONSE', result.data.building_code);
+    }); 
+    
+    $scope.buildList = [];
+    $scope.portalHelpers.invokeServerFunction('getBuildingData')
+        .then(function(result) {
+        angular.forEach(result.data, function (buildingData) {
+            $scope.buildList.push({ buildingCode: buildingData.building_code, buildingName: buildingData.building_name });
+        });
+    });
 
     $scope.loading = lfFactory.loading;
     // watch for changes in the loading variable
@@ -206,6 +214,7 @@ $scope.portalHelpers.invokeServerFunction('getOpenData', {abbr:"MC"})
                 $scope.studentData = result;
                 console.log(result);
             });
+
 
             
         } else {
