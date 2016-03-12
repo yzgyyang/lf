@@ -3,6 +3,9 @@ angular.module('portalApp')
 // Widget controller - runs every time widget is shown
 .controller('lfCtrl', ['$scope', '$http', '$q', 'lfFactory', function ($scope, $http, $q, lfFactory) {
 
+    $scope.title = { value: "" };
+    $scope.details = { value: "" };
+    
         // Model for the search and list example
     $scope.model = [{
         title: "Watcard",
