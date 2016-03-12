@@ -1,22 +1,86 @@
-<script type="text/ng-template" id="main.html"> 
+<script type="text/ng-template" id="loading.html">
+    <widget-row>
+        <widget-cell>
+            <div class="pDetails">
+                Loading..
+            </div>
+        </widget-cell>
+    </widget-row>
+</script>
+
+<script type="text/ng-template" id="main.html">
+    <!-- SEARCH AND LIST EXAMPLE -->
+    <div class="collapseMe">
         <widget-row>
             <widget-cell>
-                <h2>Hello</h2>
+                <h2>Search and List Example</h2>
             </widget-cell>
         </widget-row>
+        
+        <widget-search 
+             label="What do you seek, padawan?" 
+             placeholder="Type in a search term you must" 
+             search-results-title="Behold"
+             data="model" 
+             min-char="2" 
+             fields="['title','details']">
+            <widget-filter 
+                    fields="['category']" 
+                    filters="[{value:'1',text:'Number 1'},{value:'2',text:'Number 2'}]">
+            </widget-filter>
 
-		<widget-row>
-            <widget-cell>
-                <h2>{{data.value.message}}</h2>
-            </widget-cell>
-        </widget-row>
+            <widget-searching>
+                <widget-list list="item in searchResults" show-items="3">
+                    <widget-row clickable ng-click="showDetails(item)">
+                        <widget-cell fill>{{item.title}}</widget-cell>
+                        <widget-cell>
+                            <widget-icon name="angle-right"></widget-icon>
+                        </widget-cell>
+                    </widget-row>
+                </widget-list>
+            </widget-searching>
+
+            <widget-not-searching>
+                <widget-row>
+                    <widget-cell>
+                        <h2>Item List</h2>
+                    </widget-cell>
+                </widget-row>
+                <widget-list list="item in model" show-items="3">
+                    <widget-row clickable ng-click="showDetails(item)">
+                        <widget-cell fill>{{item.title}}</widget-cell>
+                        <widget-cell>
+                            <widget-icon name="angle-right"></widget-icon>
+                        </widget-cell>
+                    </widget-row>
+                </widget-list>
+            </widget-not-searching>
+        </widget-search>
+    </div>
+
 </script>
 
 <!-- Menu template -->
 <script type="text/ng-template" id="widgetMenu.html">
     <li>
-        <a>
-            Menu button
+        <a ng-click="menuButtonClick()">
+            Logout
         </a>
     </li>
+</script>
+
+<!-- VIEW FOR THE SEARCH AND LIST EXAMPLE -->
+<script type="text/ng-template" id="details.html">
+    <widget-list-controls prev-click="prevItem" next-click="nextItem" original-item="item.value" prev-text="Previous Item"
+                          next-text="Next Item"></widget-list-controls>
+    <widget-row>
+        <widget-cell>
+            <h2>{{item.value.title}}</h2>
+        </widget-cell>
+    </widget-row>
+    <widget-row>
+        <widget-cell>
+            <div class="pHighlight">{{item.value.details}}</div>
+        </widget-cell>
+    </widget-row>
 </script>
