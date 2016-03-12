@@ -65,10 +65,10 @@
                 </widget-cell>
                 </widget-row>
                         
-                <widget-list ng-repeat="item in db.lostTable.value" show-items="3">
+                <widget-list ng-repeat="item in lostTable.value" show-items="3">
                     <widget-row clickable ng-click="showDetails(item)">
                         <li class="info">
-                        	<widget-cell fill>{{item.title}}</widget-cell>
+                        	<widget-cell fill>{{item.details}}</widget-cell>
                         	<h6 style="color: #A9A9A9;"> Date Submitted: <widget-cell fill>{{item.date}}</widget-cell></h6>
                         </li>
                        
