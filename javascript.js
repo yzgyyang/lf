@@ -262,10 +262,17 @@ angular.module('portalApp')
     var lostInputTitle = {
         value: null
     };
-    var foundInput = {
+        var foundTable = {
         value: null
     };
 
+
+    var foundInputDetails = {
+        value: null
+    };
+    var foundInputTitle = {
+        value: null
+    };
     var sourcesLoaded = 0;
 
     var init = function($scope) {
@@ -287,7 +294,10 @@ angular.module('portalApp')
         loading: loading,
         lostInputTitle: lostInputTitle,
         lostInputDetails: lostInputDetails,
-        lostTable: lostTable
+        lostTable: lostTable,
+        foundInputTitle: foundInputTitle,
+        foundInputDetails: foundInputDetails,
+        foundTable: foundTable
     };
 }])
 
