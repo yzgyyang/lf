@@ -7,27 +7,33 @@ angular.module('portalApp')
     $scope.model = [{
         title: "Watcard",
         details: "item 1 details",
-        category: '1'
+        category: '1',
+        show:true
     }, {
         title: "pen",
         details: "item 2 details",
-        category: '2'
+        category: '2',
+        show:true
     }, {
         title: "item 3",
         details: "item 3 details",
-        category: '1'
+        category: '1',
+        show:true
     }, {
         title: "item 4",
         details: "item 4 details",
-        category: '2'
+        category: '2',
+        show:true
     }, {
         title: "item 5",
         details: "item 5 details",
-        category: '1'
+        category: '1',
+        show:true
     }, {
         title: "item 6",
         details: "item 6 details",
-        category: '2'
+        category: '2',
+        show:true
     }];
     
     // Widget Configuration
@@ -58,9 +64,9 @@ angular.module('portalApp')
     };
     
     // Handle click on delete button
-     // $scope.removeItem = function($index) {
-     //     $scope.model.splice(index.1);
-     // }
+       $scope.removeItem = function(item) {
+           item.show = false;
+       }
         
     
     // Handle "previous item" click from the details page
@@ -93,8 +99,9 @@ angular.module('portalApp')
         $scope.lostInputDetails.value=null;}
     
    
-    Item = function (index) {
-    	console.log("123", index);
+    $scope.removeItem = function (index) {
+        delete $scope.model[index];
+        
     }
     
     // watch for changes in the loading variable

@@ -29,6 +29,11 @@
             </widget-filter>
 
             <widget-searching>
+                <div class="btn-group-vertical" role="group">
+                    <button class="btn btn-default" ng-click="showInColumnOne('second.html')">
+                        Add new
+                    </button>
+                </div>
                 <widget-list list="item in searchResults" show-items="5">
                     <widget-row clickable ng-click="showDetails(item)">
                         <widget-cell fill>{{item.title}}</widget-cell>
@@ -58,13 +63,13 @@
                 </widget-row>
                         
                 <widget-list list="item in model" show-items="3">
-                    <widget-row clickable ng-click="showDetails(item)">
+                    <widget-row clickable ng-click="showDetails(item)" ng-if="item.show">
                         <widget-cell fill>{{item.title}}</widget-cell>
                         <widget-cell>
                             <widget-icon name="angle-right"></widget-icon>
                         </widget-cell>
                     </widget-row>
-                    <button class="btn btn-default remove" ng-click="removeItem($index)">
+                    <button class="btn btn-default remove" ng-click="removeItem(item)" ng-if="item.show">
                         Remove item
                     </button>
                 </widget-list>
