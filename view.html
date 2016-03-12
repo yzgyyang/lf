@@ -91,6 +91,11 @@
     <widget-row>
         <widget-cell>
             <h2>Add new</h2>
+            <p>
+                Please review the existing posts before adding a new item.
+            </p>
+            <p>
+                Exeminer les postes existants avant d'ajourter un nouvel élément, s'il vous plaît!</p>
             <div class="onoffswitch">
     			<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
     				<label class="onoffswitch-label" for="myonoffswitch">
@@ -134,6 +139,9 @@
         <widget-cell>
             <div class="pHighlight">{{item.value.details}}</div>
         </widget-cell>
+        <button class="btn btn-default" ng-click="notify()">
+            Notify by E-mail
+        </button>
     </widget-row>
 </script>
 
