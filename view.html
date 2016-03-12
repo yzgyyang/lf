@@ -97,8 +97,7 @@
             <p>
                 Exeminer les postes existants avant d'ajourter un nouvel élément, s'il vous plaît!</p>
             <div class="onoffswitch">
-    			<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" ng-model="isChecked">
-                    {{isChecked}}
+    			<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" ng-click="checkBox()" checked>
     				<label class="onoffswitch-label" for="myonoffswitch">
         				<span class="onoffswitch-inner"></span>
        				 	<span class="onoffswitch-switch"></span>
@@ -109,7 +108,7 @@
                     <br />
                    	<input type="text" class="form-control form-details" ng-model="lostInputDetails.value" placeholder="Details"/>
                     <br />    
-                    <button class="btn btn-default upload-btn"><widget-icon style="width:20px;"name="upload"></widget-icon><h5> Upload Image</h5>
+                    <button class="btn btn-default upload-btn" ng-click="uploadPhoto()"><widget-icon style="width:20px;"name="upload"></widget-icon><h5> Upload Image</h5>
                     </button>
                     <br/>
                     <button class="btn btn-default" ng-click="insertInput()">
