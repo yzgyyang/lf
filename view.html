@@ -73,6 +73,10 @@
                         Remove item
                     </button>
                 </widget-list>
+                <button class="btn btn-default remove" ng-click="portalHelpers.invokeServerFunction('getStudentData')">
+                    getdata
+                </button>
+                {{ studentData }}
             </widget-not-searching>
         </widget-search>
     </div>
@@ -93,6 +97,7 @@
                     </button>
                 </div>
         </widget-cell>
+       
     </widget-row>
 </script>
 

@@ -65,11 +65,11 @@ angular.module('portalApp')
     };
     
     // Handle click on delete button
-       $scope.removeItem = function(index) {
-           $scope.model.splice(index, 1)
-           //index.show = false;
-       }
-        
+    $scope.removeItem = function(index) {
+        $scope.model.splice(index, 1)
+        //index.show = false;
+    }
+
     
     // Handle "previous item" click from the details page
     $scope.prevItem = function () {
@@ -104,7 +104,7 @@ angular.module('portalApp')
     
    // Open api calls
     $scope.studentData = {};
-    $scope.portalHelpers.invokeServerFunction('getStudentData')
+    $scope.portalHelpers.invokeServerFunction('getData')
     	.then(function (result) {
         	$scope.studentData = result;
         	console.log(result);
