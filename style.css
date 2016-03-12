@@ -33,10 +33,11 @@ h6{
 	float: right
 }
 .add-new{
-    background-color:#32CD32 !important;
+    background-color:#348C00 !important;
     margin-top:10px !important;
     border-radius:10px !important;
     margin-bottom: 10px !important;
+    color:white !important;
 }
 
 .onoffswitch {
