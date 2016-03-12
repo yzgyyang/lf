@@ -111,7 +111,10 @@ angular.module('portalApp')
     }
 
     $scope.addItem = function() {
-    	var title = $scope.title	
+    	var title = $scope.title.value;
+        var details = $scope.details.value;
+        console.log('title: ', title);
+        console.log('details', details);
     }
     
     // Handle "previous item" click from the details page
