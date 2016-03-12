@@ -11,32 +11,37 @@ angular.module('portalApp')
         details: "il n'y a pas de détails!",
         category: '1',
         date: "2016-04-12 10:00",
-        id: '798654123'
+        id: '1234'
     }, {
         title: "stylo",
         details: "un stylo",
         date: "2016-04-12 10:00",
-        category: '2'
+        category: '2',
+        id: 123
     }, {
         title: "pizza",
         details: "nouvelle!",
         date: "2016-04-12 10:00",
-        category: '1'
+        category: '1',
+        id: 123
     }, {
         title: "item 4",
         details: "item 4 details",
         date: "2016-04-12 10:00",
-        category: '2'
+        category: '2',
+        id: 123
     }, {
         title: "item 5",
         details: "item 5 details",
         date: "2016-04-12 10:00",
-        category: '1'
+        category: '1',
+        id: 123
     }, {
         title: "item 6",
         details: "item 6 details",
         date: "2016-04-12 10:00",
         category: '2',
+        id: 123
     }];
     // Model for the search and list example
     $scope.model = [{
@@ -117,7 +122,7 @@ angular.module('portalApp')
 
     // Handle click on delete button
     $scope.removeItem = function(index) {
-        $scope.model.splice(index, 1)
+        $scope.found_model.splice(index, 1)
             //index.show = false;
     }
 
@@ -190,6 +195,11 @@ angular.module('portalApp')
             $scope.portalHelpers.showView('main.html', 1);
             $scope.portalHelpers.toggleLoading(false);
         }
+    });
+    
+    $scope.$watch('page', function() {
+        console.log('12312321');
+    	$scope.$broadcast();
     });
 
 }])

@@ -12,10 +12,11 @@
     <div class="collapseMe">
         <widget-row>
             <widget-cell>
-                <h2>Looking for items?</h2><br>
+                <h2>Looking for items?</h2>
+                <br>
                 <button class="btn btn-default tofound" ng-click="toFound()">
                         Switch to Found
-                    </button>
+                </button>
             </widget-cell>
         </widget-row>
 
@@ -33,7 +34,7 @@
 
             <widget-searching>
                 <div class="btn-group-vertical" role="group">
-                    <button class="btn btn-default" ng-click="showInColumnOne('second.html')">
+                    <button class="btn btn-default" ng-c ck="showInColumnOne('second.html')">
                         Add new
                     </button>
                 </div>
@@ -76,7 +77,7 @@
                             <widget-icon name="angle-right"></widget-icon>
                         </widget-cell>
                     </widget-row>
-                    <button class="btn btn-default remove" ng-click="removeItem($index)" ng-show="false">
+                    <button class="btn btn-default remove" ng-click="removeItem($index)"  ng-show="found_model[$index].id == 1234">
                         Remove item
                     </button>
                 </widget-list>
@@ -90,6 +91,13 @@
     <widget-row>
         <widget-cell>
             <h2>Add new</h2>
+            <div class="onoffswitch">
+    			<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+    				<label class="onoffswitch-label" for="myonoffswitch">
+        				<span class="onoffswitch-inner"></span>
+       				 	<span class="onoffswitch-switch"></span>
+    				</label>
+			</div>
 				<div class="btn-group-vertical" role="group">
                 	<input type="text" class="form-control form-title" ng-model="lostInputTitle.value" placeholder="Title"/>
                     <br />
@@ -156,7 +164,7 @@
             </widget-filter>
 
             <widget-searching>
-                <widget-list list="item in searchResults" show-items="5">
+                <widget-list list="item in searchResults" show-items="10">
                     <widget-row clickable ng-click="showDetails(item)">
                         <widget-cell fill>{{item.title}}</widget-cell>
                         <widget-cell>
@@ -184,14 +192,17 @@
                 </widget-cell>
                 </widget-row>
                         
-                <widget-list list="item in found_model" show-items="3">
+                <widget-list list="item in found_model" show-items="10">
                     <widget-row clickable ng-click="showDetails(item)">
-                        <widget-cell fill>{{item.title}}</widget-cell>
+                        <li class="info">
+                        	<widget-cell fill>{{item.title}}</widget-cell>
+                        	<h6 style="color: #A9A9A9;"> Date Submitted: <widget-cell fill>{{item.date}}</widget-cell></h6>
+                        </li>
                         <widget-cell>
                             <widget-icon name="angle-right"></widget-icon>
                         </widget-cell>
                     </widget-row>
-                    <button class="btn btn-default remove" ng-click="removeItem($index)" ng-show="model[$index].id == 123">
+                    <button class="btn btn-default remove" ng-click="removeItem($index)"  ng-show="found_model[$index].id == 1234">
                         Remove item
                     </button>
                 </widget-list>
