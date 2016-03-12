@@ -15,7 +15,7 @@
                 <h2>Look for items?</h2>
             </widget-cell>
         </widget-row>
-        
+
         <widget-search 
              label="" 
              placeholder="Search here" 
@@ -28,21 +28,29 @@
                     filters="[{value:'1',text:'Number 1'},{value:'2',text:'Number 2'}]">
             </widget-filter>
 
+
             <widget-searching>
                 <widget-list list="item in searchResults" show-items="3">
                     <widget-row clickable ng-click="showDetails(item)">
                         <widget-cell fill>{{item.title}}</widget-cell>
                         <widget-cell>
                             <widget-icon name="angle-right"></widget-icon>
+
                         </widget-cell>
                     </widget-row>
                 </widget-list>
             </widget-searching>
 
+
             <widget-not-searching>
                 <widget-row>
                     <widget-cell>
                         <h2>Item List</h2>
+                        <div class="btn-group-vertical" role="group">
+                            <button class="btn btn-default" ng-click="">
+                                Add new item
+                            </button>
+                        </div>
                     </widget-cell>
                 </widget-row>
                 <widget-list list="item in model" show-items="3">
@@ -83,3 +91,4 @@
         </widget-cell>
     </widget-row>
 </script>
+
