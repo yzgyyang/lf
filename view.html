@@ -66,10 +66,10 @@
                 </widget-cell>
                 </widget-row>
                         
-                <widget-list ng-repeat="item in lostTable.value" show-items="3">
+                <widget-list ng-repeat="item in db.lostTable.value" show-items="3">
                     <widget-row clickable ng-click="showDetails(item)">
                         <li class="info">
-                        	<widget-cell fill>{{item.details}}</widget-cell>
+                        	<widget-cell fill>{{item.title}}</widget-cell>
                         	<h6 style="color: #A9A9A9;"> Date Submitted: <widget-cell fill>{{item.date}}</widget-cell></h6>
                         </li>
                        
@@ -172,7 +172,7 @@
             </widget-filter>
 
             <widget-searching>
-                <widget-list list="item in searchResults" show-items="5">
+                <widget-list list="item in searchResults" show-items="10">
                     <widget-row clickable ng-click="showDetails(item)">
                         <widget-cell fill>{{item.title}}</widget-cell>
                         <widget-cell>
@@ -200,7 +200,7 @@
                 </widget-cell>
                 </widget-row>
                         
-                <widget-list list="item in found_model" show-items="3">
+                <widget-list list="item in found_model" show-items="10">
                     <widget-row clickable ng-click="showDetails(item)">
                         <li class="info">
                         	<widget-cell fill>{{item.title}}</widget-cell>
@@ -210,7 +210,7 @@
                             <widget-icon name="angle-right"></widget-icon>
                         </widget-cell>
                     </widget-row>
-                    <button class="btn btn-default remove" ng-click="removeItem($index)"  ng-show="found_model[$index].id == 1234">
+                    <button class="btn btn-default remove" ng-click="removeItem($index)"  ng-show="found_model[$index].id == studentData.studentNum">
                         Remove item
                     </button>
                 </widget-list>

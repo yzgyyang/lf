@@ -4,6 +4,8 @@ angular.module('portalApp')
 .controller('lfCtrl', ['$scope', '$http', '$q', 'lfFactory', function($scope, $http, $q, lfFactory) {
 
     $scope.lostorfound = "lost";
+    // Open api calls
+    $scope.studentData = {};
 
     //models for founder
     $scope.found_model = [{
@@ -11,7 +13,7 @@ angular.module('portalApp')
         details: "il n'y a pas de détails!",
         category: '1',
         date: "2016-04-12 10:00",
-        id: '1234'
+        id: $scope.studentData.studentNum
     }, {
         title: "stylo",
         details: "un stylo",
@@ -122,9 +124,11 @@ angular.module('portalApp')
 
     // Handle click on delete button
     $scope.removeItem = function(index) {
+    	//Logic to delete the item
+		var result = confirm("Are you sure you want to delete this item?");
+        if (result) {
         $scope.found_model.splice(index, 1)
-            //index.show = false;
-    }
+        }}
 
     $scope.addItem = function() {
         var title = $scope.title.value;
@@ -164,13 +168,6 @@ angular.module('portalApp')
     }
 
 
-    // Open api calls
-    $scope.studentData = {};
-    $scope.portalHelpers.invokeServerFunction('getData')
-        .then(function(result) {
-            $scope.studentData = result;
-            console.log(result);
-        });
 
     $scope.loading = lfFactory.loading;
     // watch for changes in the loading variable
@@ -181,15 +178,26 @@ angular.module('portalApp')
             $scope.portalHelpers.showView('loading.html', 1, false);
             // show loading animation in place of menu button
             $scope.portalHelpers.toggleLoading(true);
-            $scope.portalHelpers.invokeServerFunction('getTable(true)')
+            $scope.portalHelpers.invokeServerFunction('getTable', {table:lostTable})
                 .then(function(result) {
                     $scope.lostTable = result;
-                    console.log(result);
-                });
+                });           
+            $scope.portalHelpers.invokeServerFunction('getData')
+                .then(function(result) {
+                $scope.studentData = result;
+                console.log(result);
+            });
+
+            
         } else {
             $scope.portalHelpers.showView('main.html', 1);
             $scope.portalHelpers.toggleLoading(false);
         }
+    });
+    
+    $scope.$watch('page', function() {
+        console.log('12312321');
+    	$scope.$broadcast();
     });
 
 }])
