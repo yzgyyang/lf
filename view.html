@@ -28,7 +28,6 @@
                     filters="[{value:'1',text:'Number 1'},{value:'2',text:'Number 2'}]">
             </widget-filter>
 
-
             <widget-searching>
                 <widget-list list="item in searchResults" show-items="5">
                     <widget-row clickable ng-click="showDetails(item)">
@@ -62,16 +61,13 @@
                     <widget-row clickable ng-click="showDetails(item)">
                         <widget-cell fill>{{item.title}}</widget-cell>
                         <widget-cell>
-                            
                             <widget-icon name="angle-right"></widget-icon>
                         </widget-cell>
                     </widget-row>
-                    <button class="btn btn-default remove" id="remove-button-{{$index}}" ng-click="removeItem($index)">
+                    <button class="btn btn-default remove" ng-click="removeItem($index)">
                         Remove item
                     </button>
                 </widget-list>
-
-                 
             </widget-not-searching>
         </widget-search>
     </div>
