@@ -170,10 +170,7 @@ angular.module('portalApp')
         else if($scope.isChecked==false){
         }
     }
-                $scope.portalHelpers.invokeServerFunction('getTable', {table:"lostTable"})
-                .then(function(result) {
-                    $scope.lostTable = result;
-                }); 
+            
 
 // Open API for location
 $scope.portalHelpers.invokeServerFunction('getOpenData', {abbr:"MC"})
@@ -203,8 +200,13 @@ $scope.portalHelpers.invokeServerFunction('getOpenData', {abbr:"MC"})
             $scope.portalHelpers.toggleLoading(false);
         }
     });
+     $scope.portalHelpers.invokeServerFunction('getTable', {table:'lostTable'})
+                .then(function(result) {
+                    $scope.lostTable.value = result;
+                }); 
 
 }])
+ 
 
 // Factory maintains the state of the widget
 .factory('lfFactory', ['$http', '$rootScope', '$filter', '$q', function($http, $rootScope, $filter, $q) {
