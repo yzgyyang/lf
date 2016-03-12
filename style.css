@@ -13,7 +13,8 @@ h2{
     color:black;
 }
 .info{
-    display: block;
+    display: block !important;
+    list-style:none !important;
 }
 h5{
     display:inline;
